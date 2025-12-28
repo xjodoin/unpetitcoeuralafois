@@ -1,0 +1,539 @@
+---
+import '../styles/global.css';
+const nav = [
+  { label: 'À propos', href: '#apropos' },
+  { label: 'Notre équipe', href: '#equipe' },
+  { label: 'Nos services', href: '#services' },
+  { label: 'Notre engagement', href: '#engagement' },
+  { label: 'À cœur ouvert : blogue', href: '#blogue' }
+];
+
+const team = [
+  {
+    id: 'kim',
+    name: 'Kim Létourneau',
+    role: 'Fondatrice · Travailleuse sociale',
+    image: '/assets/kim.jpeg',
+    intro:
+      "Passionnée et empathique, Kim perfectionne constamment sa pratique et explore de nouvelles façons d’intervenir. Multipotentielle, elle se réinvente au rythme des besoins. Son amour des enfants se reflète dans chacune de ses actions. Elle avance avec douceur, convaincue que la force du lien est le premier outil d’intervention.",
+    full: [
+      "Membre de l’Ordre des travailleurs sociaux et thérapeutes conjugaux et familiaux du Québec, je me consacre depuis plusieurs années à l’accompagnement des enfants, des familles et des adultes. Mon parcours m’a amenée à travailler au sein du réseau de la santé et des services sociaux, en milieu scolaire, en CPE et dans divers organismes communautaires.",
+      "Au fil de mon cheminement, j’ai eu l’occasion de mettre en place et de superviser des programmes d’intervention en habiletés sociales, de soutenir des enfants à défis particuliers et d’accompagner des familles dans des contextes parfois complexes. Aujourd’hui, en pratique privée, j’offre des services centrés sur le développement des compétences sociales et émotionnelles, la régulation des émotions, l’intégration en milieu de vie, ainsi que l’évaluation du fonctionnement social.",
+      "Je travaille également auprès d’adultes vivant de l’anxiété, du stress chronique, de la dépression, de l’épuisement professionnel ou traversant des transitions importantes (séparation, parentalité, deuil).",
+      "Je crois profondément que chaque personne, peu importe son âge ou sa réalité, mérite un accompagnement respectueux de son unicité. Mon approche repose sur le lien affectif, la dignité humaine et la conviction que, lorsqu’on leur offre un cadre bienveillant et des outils adaptés, les individus peuvent retrouver équilibre et confiance.",
+      "Inspirée par une vision intégrative de la santé, je considère que le bien-être psychologique ne peut être dissocié des dimensions physiques, sociales et environnementales de la vie. L’alimentation, le mouvement, la respiration, la gestion du stress et la qualité des relations sont pour moi des leviers importants dans le processus de mieux-être.",
+      "J’utilise principalement une approche systémique et humaniste, en m’inspirant aussi des théories de l’attachement, des neurosciences affectives et de l’approche cognitivo-comportementale."
+    ],
+    services: [
+      'Rencontres psychosociales individuelles (enfants, adolescents, adultes, parents)',
+      'Ateliers d’habiletés sociales en milieu scolaire et préscolaire',
+      'Évaluations psychosociales et du fonctionnement social',
+      'Stimulation du langage en contexte de CPE',
+      'Mandats institutionnels (écoles, CPE, organismes communautaires)'
+    ],
+    issues: [
+      'Développement socio-émotionnel (estime de soi, confiance, régulation des émotions)',
+      'Habiletés sociales et intégration dans un groupe',
+      'Difficultés familiales ou parentales',
+      'Défis scolaires et d’adaptation',
+      'Anxiété, stress chronique et épuisement professionnel',
+      'Dépression et adaptation aux transitions de vie',
+      'Deuil et séparation',
+      'Accompagnement des enfants à besoins particuliers'
+    ]
+  },
+  {
+    id: 'jinny',
+    name: 'Jinny Sanon',
+    role: 'Éducatrice spécialisée',
+    image: '/assets/jinny.jpeg',
+    intro:
+      "Dynamique et polyvalente, Jinny rayonne par sa présence. Elle inspire les jeunes et apaise les adultes. Son parcours, à la fois inspirant et solide, témoigne de son engagement. Grâce à ses qualités humaines et professionnelles, elle crée rapidement un lien de confiance et un cadre propice aux changements durables.",
+    full: [
+      "Avec plus de 14 ans d’expérience en tant qu’éducatrice spécialisée, je suis profondément passionnée par le développement de l’enfant. Mon objectif est d’accompagner et d’outiller les familles pour répondre aux besoins spécifiques des enfants et favoriser un développement harmonieux.",
+      "Mon approche est à la fois empathique, humaine et systémique. Je crois fermement en l’importance de la cohérence et de la constance dans l’accompagnement des familles. Lorsque les parents rencontrent des enjeux ou des défis, je m’engage à les soutenir.",
+      "Au fil des années, j’ai eu l’opportunité d’enrichir mon expertise grâce à diverses expériences professionnelles, que ce soit dans le réseau public (Centre jeunesse et Agir-Tôt), dans le milieu communautaire (Maison des jeunes et Maison de la famille), ou encore dans le cadre d’accompagnements privés avec Serespro et Centre d’Expertise Familiale.",
+      "Ces expériences m’ont permis de développer un large éventail de moyens pour soutenir efficacement les familles. Je suis disponible pour vous aider à naviguer les défis que vous rencontrez et à trouver des solutions adaptées pour un avenir épanouissant pour vos enfants."
+    ],
+    services: [
+      'Suivi éducatif auprès des familles',
+      'Ateliers d’habiletés sociales en milieu scolaire et préscolaire',
+      'Stimulation du langage en contexte de CPE',
+      'Mandats institutionnels (écoles, CPE, organismes communautaires)'
+    ],
+    issues: [
+      'Développement socio-émotionnel (estime de soi, confiance, régulation des émotions)',
+      'Habiletés sociales et intégration dans un groupe',
+      'Retard ou trouble du langage',
+      'Trouble de comportement',
+      'Coaching familial'
+    ]
+  },
+  {
+    id: 'erika',
+    name: 'Érika Perez',
+    role: 'M. Sc. en santé mentale · Intervenante psychosociale',
+    image: null,
+    intro:
+      "Rigoureuse et sensible, Érika enveloppe chacun de sa douceur et de sa bienveillance. Adorée des enfants, elle parvient à apaiser les plus grosses émotions. Alliant la science et le cœur, elle transforme l’impasse en chemin de croissance, l’impossible en opportunité.",
+    full: [
+      "Détentrice d’une maîtrise en santé mentale, j’accompagne les enfants, les adolescents et les familles avec une approche humaniste et intégrative. Mon parcours m’a menée à intervenir dans différents milieux communautaires et institutionnels, où j’ai appris à conjuguer rigueur clinique et grande sensibilité aux réalités de chaque personne.",
+      "Je crois que les émotions, même les plus intenses, peuvent devenir des alliées lorsqu’on leur offre un espace d’accueil et des outils concrets. Mon travail vise à renforcer la sécurité intérieure, la confiance et la capacité d’adaptation, en particulier dans les périodes de transition ou de crise.",
+      "J’accorde une place centrale au lien affectif et à la collaboration avec l’entourage. L’accompagnement est toujours personnalisé et respectueux du rythme de chacun."
+    ],
+    services: [
+      'Rencontres psychosociales individuelles (enfants, adolescents, adultes)',
+      'Soutien aux parents et à la famille',
+      'Ateliers de régulation émotionnelle et d’habiletés sociales'
+    ],
+    issues: [
+      'Anxiété et stress',
+      'Difficultés d’adaptation et transitions de vie',
+      'Régulation des émotions et comportements',
+      'Estime de soi et confiance',
+      'Relations familiales et communication'
+    ]
+  },
+  {
+    id: 'valery',
+    name: 'Valéry Mathieu',
+    role: 'Travailleuse sociale · Médiatrice familiale',
+    image: '/assets/valerie.jpeg',
+    intro:
+      "Sensible et professionnelle, Valéry est engagée et investie auprès des enfants depuis de nombreuses années. Avec son franc-parler et son regard aiguisé, elle sait dénouer les situations les plus complexes. Femme de cœur et intervenante respectée, elle inspire confiance et apaisement.",
+    full: [
+      "Passionnée des relations humaines, j’interviens auprès des familles et des enfants depuis 2008 et j’ai toujours la flamme. Mon expérience en jeunesse et famille me permet d’établir un climat de confiance et de cerner rapidement et adéquatement les besoins des individus et des systèmes familiaux ou conjugaux.",
+      "Je détiens un baccalauréat en travail social ainsi qu’une formation en médiation familiale."
+    ],
+    services: [
+      'Services en médiation familiale',
+      'Suivis individuels pour les adultes ou les adolescents (séparation, gestion des émotions, anxiété, difficultés conjugales, accompagnement dans votre rôle parental)',
+      'Coaching coparental',
+      'Supervision clinique en médiation familiale',
+      'Fournisseur IVAC'
+    ],
+    issues: ['Tous les services sont offerts en présentiel ou en visioconférence.']
+  }
+];
+
+const services = [
+  {
+    title: 'Services psychosociaux',
+    items: ['Rencontre individuelle', 'Suivi familial', 'Ateliers de groupe']
+  },
+  {
+    title: 'Services éducatifs',
+    items: [
+      'Suivi en milieu scolaire',
+      'Suivi en service de garde',
+      'Stimulation de langage',
+      'Ateliers de groupe'
+    ]
+  },
+  {
+    title: 'Services juridiques',
+    items: ['Médiation familiale', "Audition à l’amiable de l’enfant"]
+  },
+  {
+    title: 'Services complémentaires',
+    items: ['Service de relevailles post-natal', 'Yoga et méditation pour les enfants (4-14 ans)']
+  }
+];
+
+const engagement = [
+  {
+    title: 'Notre réalité',
+    text:
+      "Un petit Cœur à la fois est une entreprise privée, et donc, par définition, à but lucratif. Nous sommes toutefois pleinement conscientes des enjeux éthiques liés à la croissance du secteur privé dans les services de santé et de services sociaux. C’est pourquoi nous défendons des principes d’équité et de justice sociale dans chacune de nos actions."
+  },
+  {
+    title: 'Un constat préoccupant',
+    text:
+      "Nous savons que le système de santé actuel ne répond plus aux besoins de la population. Trop de familles se retrouvent en attente, en détresse ou sans soutien adapté. Le secteur privé devient alors une alternative possible pour certains, mais il soulève ainsi des inquiétudes quant à l’accessibilité et à l’équité de ses services."
+  },
+  {
+    title: 'Notre vision',
+    text:
+      "Chez Un petit Cœur à la fois, nous croyons qu’il est possible de faire autrement. Notre objectif est d’incarner un modèle d’affaires différent, où le privé ne vient pas remplacer le public, mais plutôt le soutenir. Par nos services, nous cherchons à pallier certaines failles tout en demeurant alignées sur des valeurs de justice sociale et de dignité humaine."
+  },
+  {
+    title: 'Un engagement communautaire',
+    text:
+      "Nous croyons qu’une entreprise privée peut aussi devenir un moteur de solidarité et œuvrer pour le bien commun. À travers nos actions présentes et futures, nous souhaitons réinvestir dans des projets humains concrets, porteurs de sens et tournés vers la communauté.\n\nNous rêvons d’un modèle d’affaires différent, où chaque pas franchi se transforme en un geste d’entraide et où les bénéfices privés deviennent des retombées collectives."
+  }
+];
+
+const blog = [
+  {
+    title: 'Le lien comme premier outil d’intervention',
+    description: 'Un regard sur les gestes concrets qui nourrissent la sécurité affective et la confiance.'
+  },
+  {
+    title: 'Habiletés sociales et estime de soi',
+    description: 'Des pistes d’accompagnement pour soutenir les enfants dans leurs relations.'
+  },
+  {
+    title: 'Prendre soin des familles en transition',
+    description: 'Mieux comprendre les besoins lors des séparations, deuils et ajustements majeurs.'
+  }
+];
+---
+
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Un petit Cœur à la fois</title>
+    <meta
+      name="description"
+      content="Un petit Cœur à la fois – un organisme qui allie le cœur et la science pour accompagner les familles, les enfants et les adultes avec bienveillance."
+    />
+  </head>
+  <body class="bg-cream text-night">
+    <main>
+      <section class="relative overflow-hidden bg-hero-wash">
+        <div class="absolute inset-0">
+          <div class="absolute left-[-10%] top-[-20%] h-[420px] w-[420px] rounded-full bg-blush/40 blur-3xl"></div>
+          <div class="absolute right-[-15%] top-[10%] h-[460px] w-[460px] rounded-full bg-clay/40 blur-3xl"></div>
+          <div class="absolute left-[15%] bottom-[-20%] h-[380px] w-[380px] rounded-full bg-ember/20 blur-3xl"></div>
+        </div>
+        <div class="relative mx-auto max-w-6xl px-6 py-10">
+          <header class="flex flex-col items-start justify-between gap-6 rounded-3xl border border-white/40 bg-white/70 px-6 py-6 shadow-soft backdrop-blur md:flex-row md:items-center">
+            <div class="flex items-center gap-4">
+              <div class="h-14 w-14 overflow-hidden rounded-full border border-ember/20 bg-white">
+                <img src="/assets/logo.jpeg" alt="Logo Un petit Cœur à la fois" class="h-full w-full object-cover" />
+              </div>
+              <div>
+                <p class="font-display text-2xl text-cocoa">Un petit Cœur à la fois</p>
+                <p class="text-sm uppercase tracking-[0.35em] text-ember/70">Allier le cœur et la science</p>
+              </div>
+            </div>
+            <nav class="flex flex-wrap gap-4 text-sm font-medium text-cocoa/80">
+              {nav.map((item) => (
+                <a class="transition hover:text-ember" href={item.href}>{item.label}</a>
+              ))}
+            </nav>
+          </header>
+
+          <div class="mt-16 grid gap-12 md:grid-cols-[1.1fr_0.9fr]">
+            <div class="grain rounded-[32px] border border-white/50 bg-white/75 p-8 shadow-soft">
+              <p class="reveal font-display text-4xl leading-tight text-cocoa md:text-5xl">
+                « Alliant le coeur et la science, vous trouverez auprès de notre organisme une écoute sincère et des
+                intervenants qui oeuvrent à transformer le monde ... Un petit Coeur à la fois ! »
+              </p>
+              <p class="reveal delay-1 mt-6 text-lg text-cocoa/80">
+                Nous accompagnons les enfants, les familles et les adultes avec une approche humaine, rigoureuse et
+                profondément engagée. Ici, chaque rencontre devient un geste de guérison et chaque pas compte.
+              </p>
+              <div class="reveal delay-2 mt-8 flex flex-wrap gap-3 text-xs uppercase tracking-[0.35em] text-ember/70">
+                <span class="rounded-full border border-ember/30 bg-white/70 px-4 py-2">Présentiel</span>
+                <span class="rounded-full border border-ember/30 bg-white/70 px-4 py-2">Visioconférence</span>
+                <span class="rounded-full border border-ember/30 bg-white/70 px-4 py-2">Approche intégrative</span>
+              </div>
+              <div class="reveal delay-2 mt-10 flex flex-wrap gap-4">
+                <a
+                  href="#services"
+                  class="rounded-full bg-ember px-6 py-3 text-sm font-semibold uppercase tracking-[0.3em] text-white shadow-soft transition hover:translate-y-[-2px]"
+                >
+                  Découvrir nos services
+                </a>
+                <a
+                  href="#equipe"
+                  class="rounded-full border border-ember/40 px-6 py-3 text-sm font-semibold uppercase tracking-[0.3em] text-ember transition hover:bg-ember/10"
+                >
+                  Rencontrer l’équipe
+                </a>
+              </div>
+            </div>
+
+            <div class="flex flex-col justify-between gap-6">
+              <div class="overflow-hidden rounded-[28px] border border-white/50 bg-white/80 shadow-soft">
+                <img src="/assets/hero.png" alt="Illustration représentant un cœur soutenu par des mains" class="h-full w-full object-cover" />
+                <div class="border-t border-white/60 bg-cream/80 px-6 py-4 text-xs uppercase tracking-[0.4em] text-ember/70">
+                  Une présence douce et structurante
+                </div>
+              </div>
+              <div class="rounded-[28px] border border-white/50 bg-white/75 p-6 shadow-soft">
+                <p class="text-xs uppercase tracking-[0.4em] text-ember/70">Notre promesse</p>
+                <p class="mt-4 font-display text-2xl text-cocoa">
+                  Une approche sensible, multidisciplinaire et alignée sur la dignité humaine.
+                </p>
+                <p class="mt-4 text-sm text-cocoa/70">
+                  Nous conjuguons observation scientifique, écoute active et créativité pour bâtir des interventions
+                  efficaces et chaleureuses.
+                </p>
+              </div>
+              <div class="rounded-[28px] border border-white/50 bg-white/75 p-6 shadow-soft">
+                <p class="text-xs uppercase tracking-[0.4em] text-ember/70">Notre regard</p>
+                <p class="mt-4 text-lg text-cocoa/80">
+                  Chaque personne porte une histoire unique. Notre rôle est d’ouvrir des chemins où la confiance,
+                  l’équilibre et la joie peuvent grandir durablement.
+                </p>
+                <div class="mt-6 flex items-center gap-3 text-sm text-cocoa/60">
+                  <span class="h-2 w-2 rounded-full bg-ember"></span>
+                  <span>Présentiel et visioconférence</span>
+                </div>
+              </div>
+              <div class="grid gap-4 sm:grid-cols-2">
+                <div class="rounded-[24px] border border-ember/30 bg-ember/10 p-5 text-sm text-cocoa">
+                  <p class="text-xs uppercase tracking-[0.35em] text-ember/70">Notre force</p>
+                  <p class="mt-3 font-display text-xl text-cocoa">Écoute sincère &amp; interventions concrètes</p>
+                </div>
+                <div class="rounded-[24px] border border-cocoa/10 bg-white/80 p-5 text-sm text-cocoa/70">
+                  <p class="text-xs uppercase tracking-[0.35em] text-ember/70">Notre engagement</p>
+                  <p class="mt-3">Un modèle privé qui soutient le public et la communauté.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="apropos" class="relative bg-cream py-20">
+        <div class="mx-auto max-w-6xl px-6">
+          <div class="grid gap-12 md:grid-cols-[0.8fr_1.2fr]">
+            <div>
+              <p class="text-xs uppercase tracking-[0.5em] text-ember/70">À propos</p>
+              <h2 class="section-title mt-4 font-display text-4xl text-cocoa md:text-5xl">
+                Notre pratique met la relation au centre.
+              </h2>
+            </div>
+            <div class="rounded-[32px] border border-cocoa/10 bg-white/70 p-8 text-lg text-cocoa/80 shadow-soft">
+              <p>
+                Un petit Cœur à la fois est né d’un désir simple : créer un lieu où les familles se sentent vues,
+                soutenues et capables de traverser les étapes de la vie. Nous croyons au pouvoir de la douceur, à
+                l’importance d’un cadre clair et à l’impact d’un accompagnement qui respecte le rythme de chacun.
+              </p>
+              <p class="mt-6">
+                Notre équipe multidisciplinaire s’appuie sur l’expérience terrain, la collaboration interprofessionnelle
+                et une lecture sensible des systèmes familiaux. Chaque intervention est pensée pour ouvrir des possibles
+                et redonner confiance, pas à pas.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="equipe" class="bg-white/70 py-20">
+        <div class="mx-auto max-w-6xl px-6">
+          <div class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+            <div>
+              <p class="text-xs uppercase tracking-[0.5em] text-ember/70">Notre équipe</p>
+              <h2 class="section-title mt-4 font-display text-4xl text-cocoa md:text-5xl">
+                Des professionnels choisis pour leur intégrité.
+              </h2>
+              <p class="mt-4 max-w-2xl text-lg text-cocoa/80">
+                « Soyez le changement que vous voulez voir dans le monde. » – Mahatma Gandhi
+              </p>
+            </div>
+            <div class="rounded-[24px] border border-ember/30 bg-ember/10 px-6 py-4 text-sm text-ember">
+              Chaque membre est sélectionné pour son engagement, sa rigueur et son humanité.
+            </div>
+          </div>
+
+          <div class="mt-12 grid gap-8 md:grid-cols-2">
+            {team.map((member) => (
+              <article class="group rounded-[28px] border border-cocoa/10 bg-cream/80 p-6 shadow-soft">
+                <div class="flex items-start gap-4">
+                  {member.image ? (
+                    <div class="h-20 w-20 overflow-hidden rounded-2xl border border-white/60">
+                      <img src={member.image} alt={member.name} class="h-full w-full object-cover" />
+                    </div>
+                  ) : (
+                    <div class="flex h-20 w-20 items-center justify-center rounded-2xl bg-ember/20 text-xl font-display text-ember">
+                      ÉP
+                    </div>
+                  )}
+                  <div>
+                    <h3 class="font-display text-2xl text-cocoa">{member.name}</h3>
+                    <p class="text-sm uppercase tracking-[0.3em] text-ember/70">{member.role}</p>
+                  </div>
+                </div>
+                <p class="mt-6 text-sm text-cocoa/80">{member.intro}</p>
+                <button
+                  class="mt-6 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.3em] text-ember"
+                  data-open={member.id}
+                >
+                  Lire la description complète
+                  <span class="text-lg">→</span>
+                </button>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="services" class="bg-cream py-20">
+        <div class="mx-auto max-w-6xl px-6">
+          <div class="grid gap-10 md:grid-cols-[1fr_1fr]">
+            <div>
+              <p class="text-xs uppercase tracking-[0.5em] text-ember/70">Nos services</p>
+              <h2 class="section-title mt-4 font-display text-4xl text-cocoa md:text-5xl">
+                Un accompagnement complet, modulé pour chaque famille.
+              </h2>
+              <p class="mt-6 text-lg text-cocoa/80">
+                Notre offre réunit les dimensions psychosociales, éducatives et juridiques pour soutenir les enfants et
+                leurs proches à chaque étape. Chaque service est pensé pour favoriser un mieux-être durable.
+              </p>
+            </div>
+            <div class="grid gap-6">
+              {services.map((service) => (
+                <div class="rounded-[28px] border border-cocoa/10 bg-white/80 p-6 shadow-soft">
+                  <h3 class="font-display text-2xl text-cocoa">{service.title}</h3>
+                  <ul class="mt-4 space-y-2 text-sm text-cocoa/80">
+                    {service.items.map((item) => (
+                      <li class="flex items-start gap-2">
+                        <span class="mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-ember"></span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="engagement" class="bg-white/70 py-20">
+        <div class="mx-auto max-w-6xl px-6">
+          <div class="grid gap-10 md:grid-cols-[1fr_1fr]">
+            <div>
+              <p class="text-xs uppercase tracking-[0.5em] text-ember/70">Notre engagement</p>
+              <h2 class="section-title mt-4 font-display text-4xl text-cocoa md:text-5xl">
+                Pour une justice sociale vivante et tangible.
+              </h2>
+              <p class="mt-6 text-lg text-cocoa/80">
+                Nous avançons avec la conviction qu’un modèle privé peut aussi nourrir le bien commun. Notre approche
+                économique sert une mission de solidarité et de transformation collective.
+              </p>
+              <a
+                href="#engagement"
+                class="mt-8 inline-flex items-center gap-2 rounded-full border border-ember/50 px-6 py-3 text-sm font-semibold uppercase tracking-[0.3em] text-ember transition hover:bg-ember/10"
+              >
+                En savoir plus sur nos actions sociales
+              </a>
+            </div>
+            <div class="grid gap-6">
+              {engagement.map((item) => (
+                <div class="rounded-[28px] border border-cocoa/10 bg-cream/80 p-6 shadow-soft">
+                  <h3 class="font-display text-2xl text-cocoa">{item.title}</h3>
+                  <p class="mt-4 whitespace-pre-line text-sm text-cocoa/80">{item.text}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="blogue" class="bg-cream py-20">
+        <div class="mx-auto max-w-6xl px-6">
+          <div class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+            <div>
+              <p class="text-xs uppercase tracking-[0.5em] text-ember/70">À cœur ouvert : blogue</p>
+              <h2 class="section-title mt-4 font-display text-4xl text-cocoa md:text-5xl">
+                Des réflexions pour nourrir le quotidien.
+              </h2>
+            </div>
+            <div class="rounded-[24px] border border-ember/30 bg-ember/10 px-6 py-4 text-sm text-ember">
+              Les premiers articles arrivent bientôt.
+            </div>
+          </div>
+          <div class="mt-12 grid gap-6 md:grid-cols-3">
+            {blog.map((post) => (
+              <article class="flex h-full flex-col rounded-[26px] border border-cocoa/10 bg-white/80 p-6 shadow-soft">
+                <h3 class="font-display text-2xl text-cocoa">{post.title}</h3>
+                <p class="mt-4 text-sm text-cocoa/70">{post.description}</p>
+                <span class="mt-auto pt-6 text-xs uppercase tracking-[0.4em] text-ember/70">À venir</span>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-night py-12 text-cream">
+      <div class="mx-auto flex max-w-6xl flex-col gap-6 px-6 md:flex-row md:items-center md:justify-between">
+        <div>
+          <p class="font-display text-2xl">Un petit Cœur à la fois</p>
+          <p class="mt-2 text-sm text-cream/70">
+            Allier le cœur et la science pour accompagner chaque histoire avec dignité.
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-6 text-sm text-cream/70">
+          {nav.map((item) => (
+            <a class="transition hover:text-cream" href={item.href}>{item.label}</a>
+          ))}
+        </div>
+      </div>
+    </footer>
+
+    {team.map((member) => (
+      <dialog id={`dialog-${member.id}`} class="dialog-backdrop max-w-2xl rounded-[32px] border border-cocoa/10 bg-cream p-0 shadow-soft">
+        <div class="p-8">
+          <div class="flex items-center justify-between">
+            <div>
+              <h3 class="font-display text-3xl text-cocoa">{member.name}</h3>
+              <p class="text-sm uppercase tracking-[0.3em] text-ember/70">{member.role}</p>
+            </div>
+            <button class="rounded-full border border-cocoa/20 px-4 py-2 text-xs uppercase tracking-[0.3em] text-cocoa" data-close>
+              Fermer
+            </button>
+          </div>
+          <div class="mt-6 space-y-4 text-sm text-cocoa/80">
+            {member.full.map((paragraph) => (
+              <p>{paragraph}</p>
+            ))}
+          </div>
+          {member.services.length > 0 && (
+            <div class="mt-6">
+              <h4 class="font-display text-xl text-cocoa">Services offerts</h4>
+              <ul class="mt-3 space-y-2 text-sm text-cocoa/80">
+                {member.services.map((service) => (
+                  <li class="flex items-start gap-2">
+                    <span class="mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-ember"></span>
+                    <span>{service}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+          {member.issues.length > 0 && (
+            <div class="mt-6">
+              <h4 class="font-display text-xl text-cocoa">Problématiques</h4>
+              <ul class="mt-3 space-y-2 text-sm text-cocoa/80">
+                {member.issues.map((issue) => (
+                  <li class="flex items-start gap-2">
+                    <span class="mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-ember"></span>
+                    <span>{issue}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+      </dialog>
+    ))}
+
+    <script>
+      const openButtons = document.querySelectorAll('[data-open]');
+      const closeButtons = document.querySelectorAll('[data-close]');
+
+      openButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          const id = button.getAttribute('data-open');
+          const dialog = document.querySelector(`#dialog-${id}`);
+          if (dialog) dialog.showModal();
+        });
+      });
+
+      closeButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          const dialog = button.closest('dialog');
+          if (dialog) dialog.close();
+        });
+      });
+    </script>
+  </body>
+</html>

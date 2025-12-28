@@ -1,5 +1,7 @@
 ---
 import '../styles/global.css';
+const rawBaseUrl = import.meta.env.BASE_URL;
+const baseUrl = rawBaseUrl.endsWith('/') ? rawBaseUrl : `${rawBaseUrl}/`;
 const nav = [
   { label: 'À propos', href: '#apropos' },
   { label: 'Notre équipe', href: '#equipe' },
@@ -13,7 +15,7 @@ const team = [
     id: 'kim',
     name: 'Kim Létourneau',
     role: 'Fondatrice · Travailleuse sociale',
-    image: 'assets/kim.jpeg',
+    image: `${baseUrl}assets/kim.jpeg`,
     intro:
       "Passionnée et empathique, Kim perfectionne constamment sa pratique et explore de nouvelles façons d’intervenir. Multipotentielle, elle se réinvente au rythme des besoins. Son amour des enfants se reflète dans chacune de ses actions. Elle avance avec douceur, convaincue que la force du lien est le premier outil d’intervention.",
     full: [
@@ -46,7 +48,7 @@ const team = [
     id: 'jinny',
     name: 'Jinny Sanon',
     role: 'Éducatrice spécialisée',
-    image: 'assets/jinny.jpeg',
+    image: `${baseUrl}assets/jinny.jpeg`,
     intro:
       "Dynamique et polyvalente, Jinny rayonne par sa présence. Elle inspire les jeunes et apaise les adultes. Son parcours, à la fois inspirant et solide, témoigne de son engagement. Grâce à ses qualités humaines et professionnelles, elle crée rapidement un lien de confiance et un cadre propice aux changements durables.",
     full: [
@@ -98,7 +100,7 @@ const team = [
     id: 'valery',
     name: 'Valéry Mathieu',
     role: 'Travailleuse sociale · Médiatrice familiale',
-    image: 'assets/valerie.jpeg',
+    image: `${baseUrl}assets/valerie.jpeg`,
     intro:
       "Sensible et professionnelle, Valéry est engagée et investie auprès des enfants depuis de nombreuses années. Avec son franc-parler et son regard aiguisé, elle sait dénouer les situations les plus complexes. Femme de cœur et intervenante respectée, elle inspire confiance et apaisement.",
     full: [
@@ -202,27 +204,48 @@ const blog = [
           <header class="flex flex-col items-start justify-between gap-6 rounded-3xl border border-white/40 bg-white/70 px-6 py-6 shadow-soft backdrop-blur md:flex-row md:items-center">
             <div class="flex items-center gap-4">
               <div class="h-14 w-14 overflow-hidden rounded-full border border-ember/20 bg-white">
-                <img src="assets/logo.jpeg" alt="Logo Un petit Cœur à la fois" class="h-full w-full object-cover" />
+                <img src={`${baseUrl}assets/logo.jpeg`} alt="Logo Un petit Cœur à la fois" class="h-full w-full object-cover" />
               </div>
               <div>
-                <p class="font-display text-2xl text-cocoa">Un petit Cœur à la fois</p>
-                <p class="text-sm uppercase tracking-[0.35em] text-ember/70">Allier le cœur et la science</p>
+                <p class="font-display text-xl text-cocoa sm:text-2xl">Un petit Cœur à la fois</p>
+                <p class="text-xs uppercase tracking-[0.35em] text-ember/70 sm:text-sm">Allier le cœur et la science</p>
               </div>
             </div>
-            <nav class="flex flex-wrap gap-4 text-sm font-medium text-cocoa/80">
+            <button
+              class="inline-flex items-center gap-2 rounded-full border border-ember/30 bg-white/80 px-4 py-2 text-xs uppercase tracking-[0.3em] text-ember md:hidden"
+              data-mobile-toggle
+              aria-expanded="false"
+              aria-controls="mobile-nav"
+            >
+              Menu
+              <span class="text-base" aria-hidden="true">☰</span>
+            </button>
+            <nav class="hidden flex-wrap gap-4 text-xs font-medium text-cocoa/80 sm:text-sm md:flex">
               {nav.map((item) => (
                 <a class="transition hover:text-ember" href={item.href}>{item.label}</a>
               ))}
             </nav>
           </header>
+          <div class="relative md:hidden">
+            <div class="mobile-overlay hidden" data-mobile-overlay></div>
+            <nav
+              id="mobile-nav"
+              class="mobile-panel mt-4 flex flex-col gap-3 rounded-3xl border border-white/50 bg-white/90 px-6 py-4 text-sm font-medium text-cocoa/80 shadow-soft backdrop-blur"
+              aria-hidden="true"
+            >
+              {nav.map((item) => (
+                <a class="transition hover:text-ember" href={item.href}>{item.label}</a>
+              ))}
+            </nav>
+          </div>
 
-          <div class="mt-16 grid gap-12 md:grid-cols-[1.1fr_0.9fr]">
+          <div class="mt-12 grid gap-12 md:mt-16 md:grid-cols-[1.1fr_0.9fr]">
             <div class="grain rounded-[32px] border border-white/50 bg-white/75 p-8 shadow-soft">
-              <p class="reveal font-display text-4xl leading-tight text-cocoa md:text-5xl">
+              <p class="reveal font-display text-3xl leading-tight text-cocoa sm:text-4xl md:text-5xl">
                 « Alliant le coeur et la science, vous trouverez auprès de notre organisme une écoute sincère et des
                 intervenants qui oeuvrent à transformer le monde ... Un petit Coeur à la fois ! »
               </p>
-              <p class="reveal delay-1 mt-6 text-lg text-cocoa/80">
+              <p class="reveal delay-1 mt-6 text-base text-cocoa/80 sm:text-lg">
                 Nous accompagnons les enfants, les familles et les adultes avec une approche humaine, rigoureuse et
                 profondément engagée. Ici, chaque rencontre devient un geste de guérison et chaque pas compte.
               </p>
@@ -249,7 +272,7 @@ const blog = [
 
             <div class="flex flex-col justify-between gap-6">
               <div class="overflow-hidden rounded-[28px] border border-white/50 bg-white/80 shadow-soft">
-                <img src="assets/hero.png" alt="Illustration représentant un cœur soutenu par des mains" class="h-full w-full object-cover" />
+                <img src={`${baseUrl}assets/hero.png`} alt="Illustration représentant un cœur soutenu par des mains" class="h-56 w-full object-cover sm:h-64 md:h-72" />
                 <div class="border-t border-white/60 bg-cream/80 px-6 py-4 text-xs uppercase tracking-[0.4em] text-ember/70">
                   Une présence douce et structurante
                 </div>
@@ -470,7 +493,10 @@ const blog = [
     </footer>
 
     {team.map((member) => (
-      <dialog id={`dialog-${member.id}`} class="dialog-backdrop max-w-2xl rounded-[32px] border border-cocoa/10 bg-cream p-0 shadow-soft">
+      <dialog
+        id={`dialog-${member.id}`}
+        class="dialog-backdrop w-[92vw] max-h-[90vh] max-w-2xl overflow-y-auto rounded-[32px] border border-cocoa/10 bg-cream p-0 shadow-soft"
+      >
         <div class="p-8">
           <div class="flex items-center justify-between">
             <div>
@@ -519,6 +545,9 @@ const blog = [
     <script>
       const openButtons = document.querySelectorAll('[data-open]');
       const closeButtons = document.querySelectorAll('[data-close]');
+      const mobileToggle = document.querySelector('[data-mobile-toggle]');
+      const mobileNav = document.querySelector('#mobile-nav');
+      const mobileOverlay = document.querySelector('[data-mobile-overlay]');
 
       openButtons.forEach((button) => {
         button.addEventListener('click', () => {
@@ -534,6 +563,33 @@ const blog = [
           if (dialog) dialog.close();
         });
       });
+
+      if (mobileToggle && mobileNav && mobileOverlay) {
+        const closeMobile = () => {
+          mobileNav.classList.remove('is-open');
+          mobileOverlay.classList.add('hidden');
+          mobileToggle.setAttribute('aria-expanded', 'false');
+          mobileNav.setAttribute('aria-hidden', 'true');
+        };
+
+        const openMobile = () => {
+          mobileNav.classList.add('is-open');
+          mobileOverlay.classList.remove('hidden');
+          mobileToggle.setAttribute('aria-expanded', 'true');
+          mobileNav.setAttribute('aria-hidden', 'false');
+        };
+
+        mobileToggle.addEventListener('click', () => {
+          const isOpen = mobileNav.classList.contains('is-open');
+          if (isOpen) closeMobile();
+          else openMobile();
+        });
+
+        mobileOverlay.addEventListener('click', closeMobile);
+        mobileNav.querySelectorAll('a').forEach((link) => {
+          link.addEventListener('click', closeMobile);
+        });
+      }
     </script>
   </body>
 </html>

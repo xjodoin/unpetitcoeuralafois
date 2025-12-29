@@ -1,0 +1,160 @@
+---
+import '../../styles/global.css';
+const rawBaseUrl = import.meta.env.BASE_URL;
+const baseUrl = rawBaseUrl.endsWith('/') ? rawBaseUrl : `${rawBaseUrl}/`;
+const nav = [
+  { label: 'Accueil', href: `${baseUrl}` },
+  { label: 'À propos', href: `${baseUrl}#apropos` },
+  { label: 'Notre équipe', href: `${baseUrl}#equipe` },
+  { label: 'Nos services', href: `${baseUrl}#services` },
+  { label: 'Notre engagement', href: `${baseUrl}#engagement` },
+  { label: 'À cœur ouvert : blogue', href: `${baseUrl}#blogue` }
+];
+
+const subServices = [
+  {
+    title: 'Ateliers de groupe',
+    image: `${baseUrl}assets/complementaires-ateliers.png`,
+    text:
+      "Les ateliers de groupe offrent un espace privilégié où les personnes peuvent apprendre, expérimenter et évoluer avec et par le groupe. Le fait de partager des expériences similaires permet de se sentir moins seul, mieux compris et normalisé dans ce qui est vécu. Le groupe devient alors un levier de changement, favorisant l’entraide, l’apprentissage des habiletés sociales, l’expression des émotions et le développement de stratégies adaptatives, dans un cadre sécurisant, respectueux et bienveillant.",
+    link: `${baseUrl}services/ateliers-de-groupe/`,
+    linkLabel: 'Découvrir l’offre de groupe'
+  },
+  {
+    title: 'Supervision des nouvelles diplômées',
+    image: `${baseUrl}assets/complementaires-supervision.png`,
+    text: 'Description à venir.'
+  },
+  {
+    title: 'Services de relevailles post-natal',
+    image: `${baseUrl}assets/complementaires-relevailles.png`,
+    text: 'Description à venir.'
+  },
+  {
+    title: 'Yoga et méditation pour les enfants (0-14 ans)',
+    image: `${baseUrl}assets/complementaires-yoga.png`,
+    text: 'Description à venir.'
+  }
+];
+---
+
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Services complémentaires · Un petit Cœur à la fois</title>
+    <meta
+      name="description"
+      content="Services complémentaires : ateliers de groupe, supervision, relevailles post-natal, yoga et méditation."
+    />
+  </head>
+  <body class="bg-cream text-night">
+    <main>
+      <section class="relative overflow-hidden bg-hero-wash">
+        <div class="absolute inset-0">
+          <div class="absolute left-[-12%] top-[-20%] h-[360px] w-[360px] rounded-full bg-blush/40 blur-3xl"></div>
+          <div class="absolute right-[-10%] top-[10%] h-[420px] w-[420px] rounded-full bg-clay/40 blur-3xl"></div>
+        </div>
+        <div class="relative mx-auto max-w-6xl px-6 py-10">
+          <header class="flex flex-col items-start justify-between gap-6 rounded-3xl border border-white/40 bg-white/70 px-6 py-6 shadow-soft backdrop-blur md:flex-row md:items-center">
+            <div class="flex items-center gap-4">
+              <div class="h-14 w-14 overflow-hidden rounded-full border border-ember/20 bg-white">
+                <img src={`${baseUrl}assets/logo.jpeg`} alt="Logo Un petit Cœur à la fois" class="h-full w-full object-cover" />
+              </div>
+              <div>
+                <p class="font-display text-xl text-cocoa sm:text-2xl">Un petit Cœur à la fois</p>
+                <p class="text-xs uppercase tracking-[0.35em] text-ember/70 sm:text-sm">Allier le cœur et la science</p>
+              </div>
+            </div>
+            <nav class="flex flex-wrap gap-4 text-xs font-medium text-cocoa/80 sm:text-sm">
+              {nav.map((item) => (
+                <a class="transition hover:text-ember" href={item.href}>{item.label}</a>
+              ))}
+            </nav>
+          </header>
+
+          <div class="mt-10 grid gap-8 md:grid-cols-[1.1fr_0.9fr]">
+            <div class="rounded-[32px] border border-white/50 bg-white/75 p-8 shadow-soft">
+              <p class="text-xs uppercase tracking-[0.4em] text-ember/70">Services complémentaires</p>
+              <h1 class="mt-4 font-display text-4xl text-cocoa md:text-5xl">
+                Des appuis concrets pour les transitions familiales.
+              </h1>
+              <p class="mt-6 text-lg text-cocoa/80">
+                Les services complémentaires visent à soutenir les familles et les enfants dans des périodes clés de la
+                vie, en offrant un accompagnement humain, préventif et adapté aux besoins spécifiques de chacun. Ils
+                s’inscrivent dans une vision globale du bien-être, en tenant compte à la fois des dimensions émotionnelles,
+                corporelles et relationnelles.
+              </p>
+            </div>
+            <div class="rounded-[32px] border border-white/50 bg-white/75 p-8 text-sm text-cocoa/80 shadow-soft">
+              <p>
+                Ces services permettent de soutenir les transitions, de renforcer les capacités d’adaptation et de
+                favoriser un meilleur équilibre familial. Ils complètent les services de travail social en offrant des
+                outils concrets et accessibles, dans un cadre respectueux et bienveillant.
+              </p>
+              <div class="mt-6 rounded-[20px] border border-ember/30 bg-ember/10 px-5 py-4 text-xs uppercase tracking-[0.35em] text-ember/70">
+                Soutien personnalisé · Approche préventive
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-cream py-16">
+        <div class="mx-auto max-w-6xl px-6">
+          <div class="grid gap-6 md:grid-cols-2">
+            {subServices.map((item) => (
+              <div class="overflow-hidden rounded-[28px] border border-cocoa/10 bg-white/80 shadow-soft">
+                <div class="h-56 w-full bg-cream/70">
+                  <img src={item.image} alt={item.title} class="h-full w-full object-cover" />
+                </div>
+                <div class="p-6">
+                  <div class="flex items-start justify-between gap-4">
+                    <h3 class="font-display text-2xl text-cocoa">{item.title}</h3>
+                    {item.link && (
+                      <a class="text-xs font-semibold uppercase tracking-[0.3em] text-ember/70 hover:text-ember" href={item.link}>
+                        {item.linkLabel}
+                      </a>
+                    )}
+                  </div>
+                  <p class="mt-4 text-sm text-cocoa/80">{item.text}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div class="mt-12 flex flex-wrap gap-4">
+            <a
+              href={`${baseUrl}#services`}
+              class="rounded-full bg-ember px-6 py-3 text-sm font-semibold uppercase tracking-[0.3em] text-white shadow-soft transition hover:translate-y-[-2px]"
+            >
+              Retour aux services
+            </a>
+            <a
+              href={`${baseUrl}#equipe`}
+              class="rounded-full border border-ember/40 px-6 py-3 text-sm font-semibold uppercase tracking-[0.3em] text-ember transition hover:bg-ember/10"
+            >
+              Rencontrer l’équipe
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-night py-12 text-cream">
+      <div class="mx-auto flex max-w-6xl flex-col gap-6 px-6 md:flex-row md:items-center md:justify-between">
+        <div>
+          <p class="font-display text-2xl">Un petit Cœur à la fois</p>
+          <p class="mt-2 text-sm text-cream/70">
+            Allier le cœur et la science pour accompagner chaque histoire avec dignité.
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-6 text-sm text-cream/70">
+          {nav.map((item) => (
+            <a class="transition hover:text-cream" href={item.href}>{item.label}</a>
+          ))}
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

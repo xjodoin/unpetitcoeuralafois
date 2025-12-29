@@ -1,0 +1,159 @@
+---
+import '../../styles/global.css';
+const rawBaseUrl = import.meta.env.BASE_URL;
+const baseUrl = rawBaseUrl.endsWith('/') ? rawBaseUrl : `${rawBaseUrl}/`;
+const nav = [
+  { label: 'Accueil', href: `${baseUrl}` },
+  { label: 'À propos', href: `${baseUrl}#apropos` },
+  { label: 'Notre équipe', href: `${baseUrl}#equipe` },
+  { label: 'Nos services', href: `${baseUrl}#services` },
+  { label: 'Notre engagement', href: `${baseUrl}#engagement` },
+  { label: 'À cœur ouvert : blogue', href: `${baseUrl}#blogue` }
+];
+
+const contexts = [
+  'Séparation ou divorce',
+  'Conflits de séparation',
+  'Réorganisation des responsabilités familiales'
+];
+
+const subServices = [
+  {
+    title: 'Médiation familiale',
+    image: `${baseUrl}assets/juridique-mediation.png`,
+    text:
+      "La médiation familiale est un processus volontaire, confidentiel et structuré qui aide les parents en situation de séparation à trouver des ententes équitables et adaptées aux besoins de leurs enfants. Elle peut aborder différents volets : pension alimentaire, partage du temps parental, modalités de communication entre les parents, séparation du patrimoine familial et des biens, etc.\n\nCe service est assuré par une travailleuse sociale accréditée en médiation familiale, formée pour accompagner les familles avec neutralité, respect et douceur."
+  },
+  {
+    title: "Audition à l’amiable de l’enfant",
+    image: `${baseUrl}assets/juridique-audition.png`,
+    text:
+      "L’audition à l’amiable de l’enfant est un espace confidentiel et sécuritaire qui permet à l’enfant d’exprimer son vécu, ses besoins et ses souhaits dans le cadre d’un processus judiciaire ou d’une situation de séparation parentale.\n\nRéalisée par une travailleuse sociale formée et qualifiée, cette démarche vise à donner une voix à l’enfant, tout en respectant son rythme, son âge et sa maturité. Elle repose sur une approche neutre, bienveillante et professionnelle, centrée sur le meilleur intérêt de l’enfant. La démarche est structurée et de courte durée, conformément à la Charte déontologique de l’auditeur de l’enfant à l’amiable."
+  }
+];
+---
+
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Services juridiques · Un petit Cœur à la fois</title>
+    <meta
+      name="description"
+      content="Services juridiques psychosociaux : médiation familiale et audition à l’amiable de l’enfant."
+    />
+  </head>
+  <body class="bg-cream text-night">
+    <main>
+      <section class="relative overflow-hidden bg-hero-wash">
+        <div class="absolute inset-0">
+          <div class="absolute left-[-12%] top-[-20%] h-[360px] w-[360px] rounded-full bg-blush/40 blur-3xl"></div>
+          <div class="absolute right-[-10%] top-[10%] h-[420px] w-[420px] rounded-full bg-clay/40 blur-3xl"></div>
+        </div>
+        <div class="relative mx-auto max-w-6xl px-6 py-10">
+          <header class="flex flex-col items-start justify-between gap-6 rounded-3xl border border-white/40 bg-white/70 px-6 py-6 shadow-soft backdrop-blur md:flex-row md:items-center">
+            <div class="flex items-center gap-4">
+              <div class="h-14 w-14 overflow-hidden rounded-full border border-ember/20 bg-white">
+                <img src={`${baseUrl}assets/logo.jpeg`} alt="Logo Un petit Cœur à la fois" class="h-full w-full object-cover" />
+              </div>
+              <div>
+                <p class="font-display text-xl text-cocoa sm:text-2xl">Un petit Cœur à la fois</p>
+                <p class="text-xs uppercase tracking-[0.35em] text-ember/70 sm:text-sm">Allier le cœur et la science</p>
+              </div>
+            </div>
+            <nav class="flex flex-wrap gap-4 text-xs font-medium text-cocoa/80 sm:text-sm">
+              {nav.map((item) => (
+                <a class="transition hover:text-ember" href={item.href}>{item.label}</a>
+              ))}
+            </nav>
+          </header>
+
+          <div class="mt-10 grid gap-8 md:grid-cols-[1.1fr_0.9fr]">
+            <div class="rounded-[32px] border border-white/50 bg-white/75 p-8 shadow-soft">
+              <p class="text-xs uppercase tracking-[0.4em] text-ember/70">Services juridiques</p>
+              <h1 class="mt-4 font-display text-4xl text-cocoa md:text-5xl">
+                Un cadre neutre et structuré pour protéger l’intérêt de l’enfant.
+              </h1>
+              <p class="mt-6 text-lg text-cocoa/80">
+                Derrière chaque démarche judiciaire, il y a une histoire familiale. Les services juridiques psychosociaux
+                s’adressent aux familles vivant des contextes de séparation, de conflit ou de réorganisation familiale.
+                Ils visent à soutenir les parents et les enfants dans des démarches sensibles, en plaçant le bien-être et
+                l’intérêt de l’enfant au centre des interventions.
+              </p>
+            </div>
+            <div class="rounded-[32px] border border-white/50 bg-white/75 p-8 text-sm text-cocoa/80 shadow-soft">
+              <p>
+                La travailleuse sociale intervient dans un cadre neutre et structuré, en tenant compte des dimensions
+                émotionnelles, relationnelles et familiales qui influencent la situation. Elle aide à clarifier les enjeux,
+                à favoriser la communication et à soutenir des décisions éclairées, dans le respect des rôles et
+                responsabilités de chacun.
+              </p>
+              <p class="mt-4">
+                Les interventions permettent de réduire les tensions, de favoriser des ententes respectueuses et de donner
+                une place à la parole de l’enfant, sans lui imposer de responsabilités indues.
+              </p>
+              <h2 class="mt-6 font-display text-xl text-cocoa">Contextes d’intervention possibles</h2>
+              <ul class="mt-4 space-y-3">
+                {contexts.map((context) => (
+                  <li class="flex items-start gap-2">
+                    <span class="mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-ember"></span>
+                    <span>{context}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-cream py-16">
+        <div class="mx-auto max-w-6xl px-6">
+          <div class="grid gap-6 md:grid-cols-2">
+            {subServices.map((item) => (
+              <div class="overflow-hidden rounded-[28px] border border-cocoa/10 bg-white/80 shadow-soft">
+                <div class="h-56 w-full bg-cream/70">
+                  <img src={item.image} alt={item.title} class="h-full w-full object-cover" />
+                </div>
+                <div class="p-6">
+                  <h3 class="font-display text-2xl text-cocoa">{item.title}</h3>
+                  <p class="mt-4 whitespace-pre-line text-sm text-cocoa/80">{item.text}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div class="mt-12 flex flex-wrap gap-4">
+            <a
+              href={`${baseUrl}#services`}
+              class="rounded-full bg-ember px-6 py-3 text-sm font-semibold uppercase tracking-[0.3em] text-white shadow-soft transition hover:translate-y-[-2px]"
+            >
+              Retour aux services
+            </a>
+            <a
+              href={`${baseUrl}#equipe`}
+              class="rounded-full border border-ember/40 px-6 py-3 text-sm font-semibold uppercase tracking-[0.3em] text-ember transition hover:bg-ember/10"
+            >
+              Rencontrer l’équipe
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-night py-12 text-cream">
+      <div class="mx-auto flex max-w-6xl flex-col gap-6 px-6 md:flex-row md:items-center md:justify-between">
+        <div>
+          <p class="font-display text-2xl">Un petit Cœur à la fois</p>
+          <p class="mt-2 text-sm text-cream/70">
+            Allier le cœur et la science pour accompagner chaque histoire avec dignité.
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-6 text-sm text-cream/70">
+          {nav.map((item) => (
+            <a class="transition hover:text-cream" href={item.href}>{item.label}</a>
+          ))}
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

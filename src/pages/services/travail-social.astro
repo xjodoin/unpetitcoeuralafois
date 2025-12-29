@@ -1,0 +1,174 @@
+---
+import '../../styles/global.css';
+const rawBaseUrl = import.meta.env.BASE_URL;
+const baseUrl = rawBaseUrl.endsWith('/') ? rawBaseUrl : `${rawBaseUrl}/`;
+const nav = [
+  { label: 'Accueil', href: `${baseUrl}` },
+  { label: 'À propos', href: `${baseUrl}#apropos` },
+  { label: 'Notre équipe', href: `${baseUrl}#equipe` },
+  { label: 'Nos services', href: `${baseUrl}#services` },
+  { label: 'Notre engagement', href: `${baseUrl}#engagement` },
+  { label: 'À cœur ouvert : blogue', href: `${baseUrl}#blogue` }
+];
+
+const issues = [
+  'Difficultés relationnelles et familiales',
+  'Anxiété et manifestations anxieuses',
+  'Difficultés d’adaptation liées aux transitions de vie (séparation, deuil, changements)',
+  'Gestion des émotions et des comportements',
+  'Estime de soi et confiance',
+  'Stress, surcharge émotionnelle et épuisement',
+  'Situations de crise'
+];
+
+const subServices = [
+  {
+    title: 'Rencontre individuelle',
+    image: `${baseUrl}assets/travail-social-rencontre.png`,
+    text:
+      "Faire une demande en relation d’aide est une démarche significative, parfois délicate, qui peut faire émerger des émotions variées et contradictoires. Chez Un petit Cœur à la fois, nous sommes conscients de la vulnérabilité que cette étape peut représenter. C’est pourquoi nos intervenants offrent un accompagnement empreint de douceur, de respect et de bienveillance, dans un cadre sécurisant pour chaque personne."
+  },
+  {
+    title: 'Coaching familial',
+    image: `${baseUrl}assets/travail-social-coaching.png`,
+    text:
+      "Le suivi familial vise à accompagner les familles qui traversent une période de transition, de questionnement ou de difficulté relationnelle. Il offre un espace sécurisant et bienveillant pour mieux comprendre ce qui est vécu par chacun, soutenir le rôle parental et favoriser une communication plus harmonieuse. L’accompagnement tient compte des besoins des parents et des enfants, dans le respect du rythme, de la sécurité émotionnelle et des capacités adaptatives de la famille."
+  }
+];
+---
+
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Travail social · Un petit Cœur à la fois</title>
+    <meta
+      name="description"
+      content="Le travail social chez Un petit Cœur à la fois : accompagnement professionnel, évaluation du fonctionnement social et interventions adaptées."
+    />
+  </head>
+  <body class="bg-cream text-night">
+    <main>
+      <section class="relative overflow-hidden bg-hero-wash">
+        <div class="absolute inset-0">
+          <div class="absolute left-[-10%] top-[-20%] h-[360px] w-[360px] rounded-full bg-blush/40 blur-3xl"></div>
+          <div class="absolute right-[-15%] top-[10%] h-[420px] w-[420px] rounded-full bg-clay/40 blur-3xl"></div>
+        </div>
+        <div class="relative mx-auto max-w-6xl px-6 py-10">
+          <header class="flex flex-col items-start justify-between gap-6 rounded-3xl border border-white/40 bg-white/70 px-6 py-6 shadow-soft backdrop-blur md:flex-row md:items-center">
+            <div class="flex items-center gap-4">
+              <div class="h-14 w-14 overflow-hidden rounded-full border border-ember/20 bg-white">
+                <img src={`${baseUrl}assets/logo.jpeg`} alt="Logo Un petit Cœur à la fois" class="h-full w-full object-cover" />
+              </div>
+              <div>
+                <p class="font-display text-xl text-cocoa sm:text-2xl">Un petit Cœur à la fois</p>
+                <p class="text-xs uppercase tracking-[0.35em] text-ember/70 sm:text-sm">Allier le cœur et la science</p>
+              </div>
+            </div>
+            <nav class="flex flex-wrap gap-4 text-xs font-medium text-cocoa/80 sm:text-sm">
+              {nav.map((item) => (
+                <a class="transition hover:text-ember" href={item.href}>{item.label}</a>
+              ))}
+            </nav>
+          </header>
+
+          <div class="mt-10 grid gap-8 md:grid-cols-[1.1fr_0.9fr]">
+            <div class="rounded-[32px] border border-white/50 bg-white/75 p-8 shadow-soft">
+              <p class="text-xs uppercase tracking-[0.4em] text-ember/70">Travail social</p>
+              <h1 class="mt-4 font-display text-4xl text-cocoa md:text-5xl">Soutenir le bien-être dans toutes ses dimensions.</h1>
+              <p class="mt-6 text-lg text-cocoa/80">
+                Le travail social vise à soutenir les dimensions sociales, psychologiques et émotionnelle du bien-être.
+                Il permet d’offrir un accompagnement professionnel face à des difficultés relationnelles, émotionnelles
+                ou d’adaptation, en tenant compte de l’ensemble des sphères de vie et de l’environnement de la personne.
+              </p>
+              <div class="mt-8 flex flex-wrap gap-3 text-xs uppercase tracking-[0.35em] text-ember/70">
+                <span class="rounded-full border border-ember/30 bg-white/70 px-4 py-2">Évaluation du fonctionnement social</span>
+                <span class="rounded-full border border-ember/30 bg-white/70 px-4 py-2">Approche bienveillante</span>
+                <span class="rounded-full border border-ember/30 bg-white/70 px-4 py-2">Stratégies adaptées</span>
+              </div>
+            </div>
+            <div class="rounded-[32px] border border-white/50 bg-white/75 p-8 text-sm text-cocoa/80 shadow-soft">
+              <p>
+                Dans le cadre de son mandat, la travailleuse sociale procède à une évaluation du fonctionnement social
+                afin de mieux comprendre l’impact des facteurs familiaux, scolaires, sociaux et environnementaux sur le
+                bien-être de la personne.
+              </p>
+              <p class="mt-4">
+                Cette démarche permet d’avoir une vision globale de son fonctionnement, notamment de sa capacité à
+                interagir avec les autres, à faire face aux défis du quotidien et à s’adapter à son milieu de vie.
+              </p>
+              <p class="mt-4">
+                Les interventions visent à accompagner la personne dans la compréhension de ce qu’elle vit, à identifier
+                les facteurs sous-jacents aux difficultés rencontrées et à développer des stratégies concrètes et adaptées
+                pour améliorer sa qualité de vie. L’approche privilégiée est centrée sur le respect du rythme, la sécurité
+                émotionnelle et le renforcement des liens sociaux.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-cream py-16">
+        <div class="mx-auto max-w-6xl px-6">
+          <div class="grid gap-10 md:grid-cols-[0.9fr_1.1fr]">
+            <div>
+              <h2 class="section-title font-display text-3xl text-cocoa md:text-4xl">Problématiques pouvant être abordées</h2>
+              <ul class="mt-6 space-y-3 text-sm text-cocoa/80">
+                {issues.map((issue) => (
+                  <li class="flex items-start gap-2">
+                    <span class="mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-ember"></span>
+                    <span>{issue}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div class="grid gap-6">
+              {subServices.map((item) => (
+                <div class="overflow-hidden rounded-[28px] border border-cocoa/10 bg-white/80 shadow-soft">
+                  <div class="h-56 w-full bg-cream/70">
+                    <img src={item.image} alt={item.title} class="h-full w-full object-cover" />
+                  </div>
+                  <div class="p-6">
+                    <h3 class="font-display text-2xl text-cocoa">{item.title}</h3>
+                    <p class="mt-4 text-sm text-cocoa/80">{item.text}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div class="mt-12 flex flex-wrap gap-4">
+            <a
+              href={`${baseUrl}#services`}
+              class="rounded-full bg-ember px-6 py-3 text-sm font-semibold uppercase tracking-[0.3em] text-white shadow-soft transition hover:translate-y-[-2px]"
+            >
+              Retour aux services
+            </a>
+            <a
+              href={`${baseUrl}#equipe`}
+              class="rounded-full border border-ember/40 px-6 py-3 text-sm font-semibold uppercase tracking-[0.3em] text-ember transition hover:bg-ember/10"
+            >
+              Rencontrer l’équipe
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-night py-12 text-cream">
+      <div class="mx-auto flex max-w-6xl flex-col gap-6 px-6 md:flex-row md:items-center md:justify-between">
+        <div>
+          <p class="font-display text-2xl">Un petit Cœur à la fois</p>
+          <p class="mt-2 text-sm text-cream/70">
+            Allier le cœur et la science pour accompagner chaque histoire avec dignité.
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-6 text-sm text-cream/70">
+          {nav.map((item) => (
+            <a class="transition hover:text-cream" href={item.href}>{item.label}</a>
+          ))}
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,191 @@
+---
+import '../../styles/global.css';
+const rawBaseUrl = import.meta.env.BASE_URL;
+const baseUrl = rawBaseUrl.endsWith('/') ? rawBaseUrl : `${rawBaseUrl}/`;
+const nav = [
+  { label: 'Accueil', href: `${baseUrl}` },
+  { label: 'À propos', href: `${baseUrl}#apropos` },
+  { label: 'Notre équipe', href: `${baseUrl}#equipe` },
+  { label: 'Nos services', href: `${baseUrl}#services` },
+  { label: 'Notre engagement', href: `${baseUrl}#engagement` },
+  { label: 'À cœur ouvert : blogue', href: `${baseUrl}#blogue` }
+];
+
+const programs = [
+  {
+    id: 'mini-recree',
+    title: 'Programme Les mini-récrée',
+    description: 'Description à venir.'
+  },
+  {
+    id: 'mon-sac-a-mots',
+    title: 'Programme Mon sac à mots',
+    description: 'Description à venir.'
+  },
+  {
+    id: 'yoga-meditation',
+    title: 'Yoga et méditation pour les enfants (4-14 ans)',
+    description: 'Description à venir.'
+  }
+];
+---
+
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Soutien en milieu scolaire · Un petit Cœur à la fois</title>
+    <meta
+      name="description"
+      content="Soutien en milieu scolaire et service de garde : programmes Les mini-récrée, Mon sac à mots, yoga et méditation."
+    />
+  </head>
+  <body class="bg-cream text-night">
+    <main>
+      <section class="relative overflow-hidden bg-hero-wash">
+        <div class="absolute inset-0">
+          <div class="absolute left-[-12%] top-[-20%] h-[360px] w-[360px] rounded-full bg-blush/40 blur-3xl"></div>
+          <div class="absolute right-[-10%] top-[10%] h-[420px] w-[420px] rounded-full bg-clay/40 blur-3xl"></div>
+        </div>
+        <div class="relative mx-auto max-w-6xl px-6 py-10">
+          <header class="flex flex-col items-start justify-between gap-6 rounded-3xl border border-white/40 bg-white/70 px-6 py-6 shadow-soft backdrop-blur md:flex-row md:items-center">
+            <div class="flex items-center gap-4">
+              <div class="h-14 w-14 overflow-hidden rounded-full border border-ember/20 bg-white">
+                <img src={`${baseUrl}assets/logo.jpeg`} alt="Logo Un petit Cœur à la fois" class="h-full w-full object-cover" />
+              </div>
+              <div>
+                <p class="font-display text-xl text-cocoa sm:text-2xl">Un petit Cœur à la fois</p>
+                <p class="text-xs uppercase tracking-[0.35em] text-ember/70 sm:text-sm">Allier le cœur et la science</p>
+              </div>
+            </div>
+            <nav class="flex flex-wrap gap-4 text-xs font-medium text-cocoa/80 sm:text-sm">
+              {nav.map((item) => (
+                <a class="transition hover:text-ember" href={item.href}>{item.label}</a>
+              ))}
+            </nav>
+          </header>
+
+          <div class="mt-10 grid gap-8 md:grid-cols-[1.1fr_0.9fr]">
+            <div class="rounded-[32px] border border-white/50 bg-white/75 p-8 shadow-soft">
+              <p class="text-xs uppercase tracking-[0.4em] text-ember/70">Soutien en milieu scolaire</p>
+              <h1 class="mt-4 font-display text-4xl text-cocoa md:text-5xl">
+                Des programmes pour nourrir la sécurité et l’épanouissement des enfants.
+              </h1>
+              <p class="mt-6 text-lg text-cocoa/80">
+                Le soutien en milieu scolaire et en service de garde propose des interventions ciblées pour accompagner
+                les enfants dans leur développement socio-émotionnel, langagier et relationnel, en collaboration avec les
+                équipes éducatives et les familles.
+              </p>
+              <p class="mt-4 text-lg text-cocoa/80">
+                Les actions s’inscrivent dans une approche préventive et collaborative, fondée sur la science affective
+                et adaptée aux réalités de chaque milieu.
+              </p>
+            </div>
+            <div class="rounded-[32px] border border-white/50 bg-white/75 p-8 text-sm text-cocoa/80 shadow-soft">
+              <div class="h-56 w-full overflow-hidden rounded-[22px] bg-cream/70">
+                <img
+                  src={`${baseUrl}assets/soutien-milieu-scolaire.png`}
+                  alt="Enfants et intervenante dans un milieu scolaire"
+                  class="h-full w-full object-cover"
+                />
+              </div>
+              <p>
+                Chaque programme répond à des besoins spécifiques et peut être adapté aux réalités du milieu. Les services
+                visent à renforcer les compétences des enfants tout en outillant les intervenants qui les accompagnent au
+                quotidien.
+              </p>
+              <div class="mt-6 rounded-[20px] border border-ember/30 bg-ember/10 px-5 py-4 text-xs uppercase tracking-[0.35em] text-ember/70">
+                Collaboration école-famille · Approche préventive
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-cream py-16">
+        <div class="mx-auto max-w-5xl px-6">
+          <h2 class="section-title font-display text-3xl text-cocoa md:text-4xl">Programmes offerts</h2>
+          <p class="mt-4 text-sm text-cocoa/80">
+            Sélectionnez un programme pour découvrir les informations disponibles.
+          </p>
+          <div class="mt-6 flex flex-wrap gap-3">
+            {programs.map((program, index) => (
+              <button
+                type="button"
+                data-tab={program.id}
+                aria-selected={index === 0 ? 'true' : 'false'}
+                class={`tab-button rounded-full border px-5 py-2 text-xs font-semibold uppercase tracking-[0.3em] transition ${
+                  index === 0 ? 'bg-ember text-white border-ember shadow-soft' : 'bg-white/80 text-ember/70 border-ember/30'
+                }`}
+              >
+                {program.title}
+              </button>
+            ))}
+          </div>
+          <div class="mt-8 rounded-[28px] border border-cocoa/10 bg-white/80 p-6 shadow-soft">
+            {programs.map((program, index) => (
+              <div data-panel={program.id} class={index === 0 ? '' : 'hidden'}>
+                <h3 class="font-display text-2xl text-cocoa">{program.title}</h3>
+                <p class="mt-4 text-sm text-cocoa/80">{program.description}</p>
+              </div>
+            ))}
+          </div>
+          <div class="mt-12 flex flex-wrap gap-4">
+            <a
+              href={`${baseUrl}services/educatifs/`}
+              class="rounded-full bg-ember px-6 py-3 text-sm font-semibold uppercase tracking-[0.3em] text-white shadow-soft transition hover:translate-y-[-2px]"
+            >
+              Retour aux services éducatifs
+            </a>
+            <a
+              href={`${baseUrl}#services`}
+              class="rounded-full border border-ember/40 px-6 py-3 text-sm font-semibold uppercase tracking-[0.3em] text-ember transition hover:bg-ember/10"
+            >
+              Tous les services
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-night py-12 text-cream">
+      <div class="mx-auto flex max-w-6xl flex-col gap-6 px-6 md:flex-row md:items-center md:justify-between">
+        <div>
+          <p class="font-display text-2xl">Un petit Cœur à la fois</p>
+          <p class="mt-2 text-sm text-cream/70">
+            Allier le cœur et la science pour accompagner chaque histoire avec dignité.
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-6 text-sm text-cream/70">
+          {nav.map((item) => (
+            <a class="transition hover:text-cream" href={item.href}>{item.label}</a>
+          ))}
+        </div>
+      </div>
+    </footer>
+
+    <script is:inline>
+      const tabButtons = document.querySelectorAll('[data-tab]');
+      const panels = document.querySelectorAll('[data-panel]');
+      const activeClasses = ['bg-ember', 'text-white', 'border-ember', 'shadow-soft'];
+      const inactiveClasses = ['bg-white/80', 'text-ember/70', 'border-ember/30'];
+
+      const setActiveTab = (id) => {
+        tabButtons.forEach((button) => {
+          const isActive = button.dataset.tab === id;
+          button.setAttribute('aria-selected', isActive ? 'true' : 'false');
+          activeClasses.forEach((className) => button.classList.toggle(className, isActive));
+          inactiveClasses.forEach((className) => button.classList.toggle(className, !isActive));
+        });
+        panels.forEach((panel) => {
+          panel.hidden = panel.dataset.panel !== id;
+        });
+      };
+
+      tabButtons.forEach((button) => {
+        button.addEventListener('click', () => setActiveTab(button.dataset.tab));
+      });
+    </script>
+  </body>
+</html>

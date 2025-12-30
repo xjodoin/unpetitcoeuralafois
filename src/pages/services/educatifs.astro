@@ -20,6 +20,14 @@ const goals = [
 
 const subServices = [
   {
+    title: 'Soutien en milieu scolaire et service de garde',
+    image: `${baseUrl}assets/soutien-milieu-scolaire.png`,
+    text:
+      'Des interventions ciblées pour soutenir le développement socio-émotionnel et langagier des enfants, en collaboration avec les équipes éducatives et les familles.',
+    link: `${baseUrl}services/soutien-milieu-scolaire/`,
+    linkLabel: 'Découvrir les programmes'
+  },
+  {
     title: 'Coaching familial',
     image: `${baseUrl}assets/educatifs-coaching.png`,
     text:
@@ -41,7 +49,7 @@ const subServices = [
     <title>Services éducatifs · Un petit Cœur à la fois</title>
     <meta
       name="description"
-      content="Services éducatifs chez Un petit Cœur à la fois : interventions en milieu scolaire et services de garde, coaching familial et stimulation de langage."
+      content="Services éducatifs chez Un petit Cœur à la fois : soutien en milieu scolaire et service de garde, coaching familial et stimulation de langage."
     />
   </head>
   <body class="bg-cream text-night">
@@ -95,9 +103,6 @@ const subServices = [
                   </li>
                 ))}
               </ul>
-              <div class="mt-8 rounded-[20px] border border-ember/30 bg-ember/10 px-5 py-4 text-xs uppercase tracking-[0.35em] text-ember/70">
-                Soutien en milieu scolaire et en services de garde
-              </div>
             </div>
           </div>
         </div>
@@ -112,7 +117,14 @@ const subServices = [
                   <img src={item.image} alt={item.title} class="h-full w-full object-cover" />
                 </div>
                 <div class="p-6">
-                  <h3 class="font-display text-2xl text-cocoa">{item.title}</h3>
+                  <div class="flex items-start justify-between gap-4">
+                    <h3 class="font-display text-2xl text-cocoa">{item.title}</h3>
+                    {item.link && (
+                      <a class="text-xs font-semibold uppercase tracking-[0.3em] text-ember/70 hover:text-ember" href={item.link}>
+                        {item.linkLabel}
+                      </a>
+                    )}
+                  </div>
                   <p class="mt-4 text-sm text-cocoa/80">{item.text}</p>
                 </div>
               </div>

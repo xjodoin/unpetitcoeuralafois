@@ -8,24 +8,21 @@ const nav = [
   { label: 'Notre équipe', href: `${baseUrl}#equipe` },
   { label: 'Nos services', href: `${baseUrl}#services` },
   { label: 'Notre engagement', href: `${baseUrl}#engagement` },
-  { label: 'À cœur ouvert : blogue', href: `${baseUrl}#blogue` }
+  { label: 'Nous joindre', href: `${baseUrl}#contact` }
 ];
 
 const programs = [
   {
     id: 'mini-recree',
-    title: 'Programme Les mini-récrée',
-    description: 'Description à venir.'
+    title: 'Programme Les Mini-Récré'
   },
   {
     id: 'mon-sac-a-mots',
-    title: 'Programme Mon sac à mots',
-    description: 'Description à venir.'
+    title: 'Programme Mon sac à mots'
   },
   {
     id: 'yoga-meditation',
-    title: 'Yoga et méditation pour les enfants (4-14 ans)',
-    description: 'Description à venir.'
+    title: 'Yoga et méditation pour les enfants (4-14 ans)'
   }
 ];
 ---
@@ -124,12 +121,168 @@ const programs = [
             ))}
           </div>
           <div class="mt-8 rounded-[28px] border border-cocoa/10 bg-white/80 p-6 shadow-soft">
-            {programs.map((program, index) => (
-              <div data-panel={program.id} class={index === 0 ? '' : 'hidden'}>
-                <h3 class="font-display text-2xl text-cocoa">{program.title}</h3>
-                <p class="mt-4 text-sm text-cocoa/80">{program.description}</p>
-              </div>
-            ))}
+            <div data-panel="mini-recree">
+              <h3 class="font-display text-2xl text-cocoa">Programme Les Mini-Récré</h3>
+              <p class="mt-4 text-sm text-cocoa/80">
+                <strong>Les Mini-Récré</strong> est un programme d'ateliers d'habiletés sociales destiné aux enfants d'âge
+                préscolaire et du primaire, offert en petit groupe directement dans les milieux éducatifs. Il vise à soutenir
+                le développement des compétences sociales, émotionnelles et relationnelles des enfants, dans un cadre
+                sécurisant, ludique et structuré.
+              </p>
+              <p class="mt-3 text-sm text-cocoa/80">
+                À travers le jeu, le mouvement, les échanges et des moments de retour au calme, les enfants sont amenés à
+                mieux comprendre leurs émotions, leurs réactions et celles des autres, tout en développant des stratégies
+                concrètes pour interagir de façon plus harmonieuse au quotidien.
+              </p>
+
+              <h4 class="mt-6 font-display text-lg text-cocoa">Une approche douce, relationnelle et respectueuse du rythme de l'enfant</h4>
+              <p class="mt-2 text-sm text-cocoa/80">
+                Les Mini-Récré reposent sur une approche bienveillante qui reconnaît que chaque enfant évolue à son propre
+                rythme. L'objectif n'est pas de corriger des comportements, mais d'<strong>outiller</strong>, de
+                <strong>normaliser les difficultés</strong> et de <strong>valoriser les forces</strong> déjà présentes chez l'enfant.
+              </p>
+              <p class="mt-2 text-sm text-cocoa/80">Le programme s'appuie sur :</p>
+              <ul class="mt-2 space-y-2 text-sm text-cocoa/80">
+                <li class="flex items-start gap-2"><span class="mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-ember"></span><span>un cadre clair et sécurisant ;</span></li>
+                <li class="flex items-start gap-2"><span class="mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-ember"></span><span>des groupes restreints favorisant la participation et le lien ;</span></li>
+                <li class="flex items-start gap-2"><span class="mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-ember"></span><span>une posture adulte contenante, empathique et cohérente ;</span></li>
+                <li class="flex items-start gap-2"><span class="mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-ember"></span><span>l'apprentissage par l'expérience, le jeu et le plaisir.</span></li>
+              </ul>
+
+              <h4 class="mt-6 font-display text-lg text-cocoa">Ce que le programme soutient chez l'enfant</h4>
+              <p class="mt-2 text-sm text-cocoa/80">Les ateliers Mini-Récré permettent de travailler, entre autres :</p>
+              <ul class="mt-2 space-y-2 text-sm text-cocoa/80">
+                <li class="flex items-start gap-2"><span class="mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-ember"></span><span>la reconnaissance et l'expression des émotions ;</span></li>
+                <li class="flex items-start gap-2"><span class="mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-ember"></span><span>la gestion de l'impulsivité et des émotions intenses ;</span></li>
+                <li class="flex items-start gap-2"><span class="mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-ember"></span><span>la tolérance à la frustration et aux délais ;</span></li>
+                <li class="flex items-start gap-2"><span class="mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-ember"></span><span>l'affirmation de soi dans le respect de l'autre ;</span></li>
+                <li class="flex items-start gap-2"><span class="mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-ember"></span><span>la résolution de conflits et la coopération ;</span></li>
+                <li class="flex items-start gap-2"><span class="mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-ember"></span><span>l'écoute, le respect des règles et le tour de parole ;</span></li>
+                <li class="flex items-start gap-2"><span class="mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-ember"></span><span>le développement de l'estime de soi et du sentiment de compétence.</span></li>
+              </ul>
+              <p class="mt-3 text-sm text-cocoa/80">
+                Les enfants apprennent à mieux se connaître, à comprendre l'impact de leurs gestes et à développer des
+                stratégies adaptées à leur réalité.
+              </p>
+
+              <h4 class="mt-6 font-display text-lg text-cocoa">Une structure d'ateliers claire et progressive</h4>
+              <p class="mt-2 text-sm text-cocoa/80">
+                Le programme <strong>Les Mini-Récré</strong> se déroule sous forme de <strong>blocs d'ateliers thématiques</strong>,
+                généralement offerts une fois par semaine. Chaque atelier comprend :
+              </p>
+              <ul class="mt-2 space-y-2 text-sm text-cocoa/80">
+                <li class="flex items-start gap-2"><span class="mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-ember"></span><span>une activité d'ouverture pour favoriser la cohésion du groupe ;</span></li>
+                <li class="flex items-start gap-2"><span class="mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-ember"></span><span>des jeux et activités ciblant une habileté sociale précise ;</span></li>
+                <li class="flex items-start gap-2"><span class="mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-ember"></span><span>des moments d'échanges guidés adaptés à l'âge des enfants ;</span></li>
+                <li class="flex items-start gap-2"><span class="mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-ember"></span><span>une période de retour au calme intégrant respiration, relaxation ou mouvements doux.</span></li>
+              </ul>
+              <p class="mt-3 text-sm text-cocoa/80">
+                Les thèmes abordés évoluent de façon progressive, permettant aux enfants de consolider leurs apprentissages
+                d'un atelier à l'autre.
+              </p>
+
+              <h4 class="mt-6 font-display text-lg text-cocoa">Le rôle central du jeu et du corps</h4>
+              <p class="mt-2 text-sm text-cocoa/80">
+                Le jeu est au cœur du programme Mini-Récré. Les activités proposées permettent aux enfants de
+                <strong>vivre</strong> les situations plutôt que de seulement en parler. Le mouvement, les jeux moteurs et
+                les mises en situation facilitent l'intégration des apprentissages et soutiennent la régulation émotionnelle.
+              </p>
+              <p class="mt-3 text-sm text-cocoa/80">
+                Les moments de relaxation et de respiration aident les enfants à développer une meilleure conscience
+                corporelle et à découvrir des stratégies concrètes pour se calmer lorsque « ça déborde ».
+              </p>
+
+              <h4 class="mt-6 font-display text-lg text-cocoa">Un soutien au développement global et à la vie de groupe</h4>
+              <p class="mt-2 text-sm text-cocoa/80">
+                Les Mini-Récré contribuent non seulement au développement individuel de chaque enfant, mais aussi à
+                l'amélioration du climat de groupe. Les apprentissages réalisés peuvent être réinvestis dans le quotidien
+                scolaire ou en milieu de garde, favorisant des interactions plus positives entre les enfants.
+              </p>
+              <p class="mt-3 text-sm text-cocoa/80">Le programme permet ainsi :</p>
+              <ul class="mt-2 space-y-2 text-sm text-cocoa/80">
+                <li class="flex items-start gap-2"><span class="mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-ember"></span><span>de soutenir les enfants dans leurs défis relationnels ;</span></li>
+                <li class="flex items-start gap-2"><span class="mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-ember"></span><span>de renforcer leur sentiment d'appartenance au groupe ;</span></li>
+                <li class="flex items-start gap-2"><span class="mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-ember"></span><span>de prévenir l'escalade de conflits en outillant les enfants en amont.</span></li>
+              </ul>
+            </div>
+
+            <div data-panel="mon-sac-a-mots" hidden>
+              <h3 class="font-display text-2xl text-cocoa">Programme Mon sac à mots</h3>
+              <p class="mt-4 text-sm text-cocoa/80">
+                <strong>Mon sac à mots</strong> est un programme de stimulation du langage et du développement global destiné
+                aux enfants d'âge préscolaire, offert directement dans les milieux de garde. Il vise à accompagner les enfants
+                dans le développement de leurs habiletés langagières, sociales, émotionnelles et cognitives, tout en respectant
+                leur rythme et leur unicité.
+              </p>
+              <p class="mt-3 text-sm text-cocoa/80">
+                Plus qu'un programme d'apprentissage, <em>Mon sac à mots</em> propose une approche bienveillante et consciente,
+                où l'adulte joue un rôle central comme modèle sécurisant et présent. L'accent est mis autant sur le
+                <strong>savoir-être</strong> que sur le <strong>savoir-faire</strong>, puisque la qualité de la relation et de
+                la présence de l'adulte influence directement les apprentissages de l'enfant.
+              </p>
+
+              <h4 class="mt-6 font-display text-lg text-cocoa">Une approche douce, structurée et respectueuse</h4>
+              <p class="mt-2 text-sm text-cocoa/80">Le programme repose sur des principes fondamentaux :</p>
+              <ul class="mt-2 space-y-2 text-sm text-cocoa/80">
+                <li class="flex items-start gap-2"><span class="mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-ember"></span><span>respecter le rythme de chaque enfant ;</span></li>
+                <li class="flex items-start gap-2"><span class="mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-ember"></span><span>exposer dans le plaisir, sans exiger de performance ;</span></li>
+                <li class="flex items-start gap-2"><span class="mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-ember"></span><span>valoriser les efforts autant que les réussites ;</span></li>
+                <li class="flex items-start gap-2"><span class="mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-ember"></span><span>favoriser un climat sécurisant, propice aux apprentissages.</span></li>
+              </ul>
+              <p class="mt-3 text-sm text-cocoa/80">
+                Les enfants sont considérés comme des apprenants en développement, et non en évaluation. Chaque activité est
+                pensée pour susciter la curiosité, l'engagement et le plaisir d'être en relation.
+              </p>
+
+              <h4 class="mt-6 font-display text-lg text-cocoa">Ce que le programme soutient chez l'enfant</h4>
+              <p class="mt-2 text-sm text-cocoa/80">
+                À travers des activités ludiques et structurées, <strong>Mon sac à mots</strong> soutient :
+              </p>
+              <ul class="mt-2 space-y-2 text-sm text-cocoa/80">
+                <li class="flex items-start gap-2"><span class="mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-ember"></span><span>le développement du langage oral (vocabulaire, prononciation, structure de phrase, habiletés discursives) ;</span></li>
+                <li class="flex items-start gap-2"><span class="mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-ember"></span><span>l'éveil à la littératie (conscience de l'écrit, vocabulaire littéraire, inférences, conscience phonologique) ;</span></li>
+                <li class="flex items-start gap-2"><span class="mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-ember"></span><span>l'éveil aux mathématiques (comptines numériques, dénombrement, notions spatiales et de grandeur) ;</span></li>
+                <li class="flex items-start gap-2"><span class="mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-ember"></span><span>les fonctions exécutives (attention, concentration, autorégulation) ;</span></li>
+                <li class="flex items-start gap-2"><span class="mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-ember"></span><span>le développement socio-affectif, notamment par la pleine conscience, la respiration et l'apprentissage des règles de communication ;</span></li>
+                <li class="flex items-start gap-2"><span class="mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-ember"></span><span>la motricité globale et fine, par des activités de manipulation et de mouvement.</span></li>
+              </ul>
+
+              <h4 class="mt-6 font-display text-lg text-cocoa">Les bulles d'éveil : apprendre par l'expérience</h4>
+              <p class="mt-2 text-sm text-cocoa/80">
+                Le programme est structuré autour de <strong>9 bulles d'éveil</strong>, chacune abordant un thème précis
+                (langage oral, sons, lettres, chiffres, musique, rimes, cinq sens, symboles écrits, fête des apprentissages).
+                Chaque bulle comprend <strong>quatre activités progressives</strong>, expliquées pas à pas, permettant à
+                l'enfant de consolider ses acquis à travers l'expérimentation et la répétition.
+              </p>
+              <p class="mt-3 text-sm text-cocoa/80">
+                Les ateliers peuvent être animés aux <strong>2 à 4 semaines</strong>, selon le rythme du milieu, en laissant
+                le temps aux enfants d'explorer et de réinvestir les apprentissages entre les rencontres.
+              </p>
+
+              <h4 class="mt-6 font-display text-lg text-cocoa">Une place importante accordée à la pleine conscience</h4>
+              <p class="mt-2 text-sm text-cocoa/80">
+                La pleine conscience fait partie intégrante du programme. Les enfants sont amenés à développer une meilleure
+                conscience de leur corps, de leur respiration et de leur état intérieur, afin de favoriser le retour au calme,
+                l'attention et la disponibilité aux apprentissages. L'adulte est invité à modéliser cette posture, en prenant
+                lui-même un pas de recul et en influençant positivement l'énergie du groupe.
+              </p>
+
+              <h4 class="mt-6 font-display text-lg text-cocoa">Préparer la transition scolaire... autrement</h4>
+              <p class="mt-2 text-sm text-cocoa/80">
+                L'objectif ultime de <strong>Mon sac à mots</strong> est de préparer les enfants à une transition scolaire
+                réussie, non seulement en enrichissant leur langage, mais en soutenant l'ensemble des sphères de leur
+                développement.
+              </p>
+              <p class="mt-3 text-sm text-cocoa/80">
+                Parce qu'être prêt pour l'école, ce n'est pas seulement connaître des mots, c'est aussi savoir s'exprimer,
+                se réguler, interagir avec les autres et se sentir compétent.
+              </p>
+            </div>
+
+            <div data-panel="yoga-meditation" hidden>
+              <h3 class="font-display text-2xl text-cocoa">Yoga et méditation pour les enfants (4-14 ans)</h3>
+              <p class="mt-4 text-sm text-cocoa/80">Description à venir.</p>
+            </div>
           </div>
           <div class="mt-12 flex flex-wrap gap-4">
             <a

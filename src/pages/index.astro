@@ -5,9 +5,9 @@ const baseUrl = rawBaseUrl.endsWith('/') ? rawBaseUrl : `${rawBaseUrl}/`;
 const nav = [
   { label: 'À propos', href: '#apropos' },
   { label: 'Notre équipe', href: '#equipe' },
-  { label: 'Nos services', href: '#services' },
+  { label: 'Nos services', href: '#services', dropdown: true },
   { label: 'Notre engagement', href: '#engagement' },
-  { label: 'À cœur ouvert : blogue', href: '#blogue' }
+  { label: 'Nous joindre', href: '#contact' }
 ];
 
 const team = [
@@ -181,20 +181,7 @@ const engagement = [
   }
 ];
 
-const blog = [
-  {
-    title: 'Le lien comme premier outil d’intervention',
-    description: 'Un regard sur les gestes concrets qui nourrissent la sécurité affective et la confiance.'
-  },
-  {
-    title: 'Habiletés sociales et estime de soi',
-    description: 'Des pistes d’accompagnement pour soutenir les enfants dans leurs relations.'
-  },
-  {
-    title: 'Prendre soin des familles en transition',
-    description: 'Mieux comprendre les besoins lors des séparations, deuils et ajustements majeurs.'
-  }
-];
+
 ---
 
 <!DOCTYPE html>
@@ -237,9 +224,25 @@ const blog = [
               <span class="text-base" aria-hidden="true">☰</span>
             </button>
             <nav class="hidden flex-wrap gap-4 text-xs font-medium text-cocoa/80 sm:text-sm md:flex">
-              {nav.map((item) => (
-                <a class="transition hover:text-ember" href={item.href}>{item.label}</a>
-              ))}
+              {nav.map((item) =>
+                item.dropdown ? (
+                  <div class="service-dropdown relative">
+                    <a class="inline-flex items-center gap-1 transition hover:text-ember" href={item.href}>
+                      {item.label}
+                      <svg class="h-3 w-3 transition-transform" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5l3 3 3-3"/></svg>
+                    </a>
+                    <div class="dropdown-menu absolute left-1/2 top-full z-50 hidden -translate-x-1/2 pt-2">
+                      <div class="flex flex-col gap-1 rounded-2xl border border-white/60 bg-white/95 p-3 shadow-soft backdrop-blur min-w-[220px]">
+                        {services.map((s) => (
+                          <a class="rounded-xl px-4 py-2 text-xs text-cocoa/80 transition hover:bg-ember/10 hover:text-ember" href={s.href}>{s.title}</a>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                ) : (
+                  <a class="transition hover:text-ember" href={item.href}>{item.label}</a>
+                )
+              )}
             </nav>
           </header>
           <div class="relative md:hidden">
@@ -249,9 +252,20 @@ const blog = [
               class="mobile-panel mt-4 flex flex-col gap-3 rounded-3xl border border-white/50 bg-white/90 px-6 py-4 text-sm font-medium text-cocoa/80 shadow-soft backdrop-blur"
               aria-hidden="true"
             >
-              {nav.map((item) => (
-                <a class="transition hover:text-ember" href={item.href}>{item.label}</a>
-              ))}
+              {nav.map((item) =>
+                item.dropdown ? (
+                  <div>
+                    <a class="transition hover:text-ember" href={item.href}>{item.label}</a>
+                    <div class="ml-4 mt-2 flex flex-col gap-2 border-l border-ember/20 pl-3">
+                      {services.map((s) => (
+                        <a class="text-xs text-cocoa/70 transition hover:text-ember" href={s.href}>{s.title}</a>
+                      ))}
+                    </div>
+                  </div>
+                ) : (
+                  <a class="transition hover:text-ember" href={item.href}>{item.label}</a>
+                )
+              )}
             </nav>
           </div>
 
@@ -340,14 +354,21 @@ const blog = [
             </div>
             <div class="rounded-[32px] border border-cocoa/10 bg-white/70 p-8 text-lg text-cocoa/80 shadow-soft">
               <p>
-                Un petit Cœur à la fois est né d’un désir simple : créer un lieu où les familles se sentent vues,
-                soutenues et capables de traverser les étapes de la vie. Nous croyons au pouvoir de la douceur, à
-                l’importance d’un cadre clair et à l’impact d’un accompagnement qui respecte le rythme de chacun.
+                Un petit Cœur à la fois est né d'un désir simple et profond : offrir un espace où chaque personne se sent
+                réellement entendue, reconnue dans ce qu'elle vit et accueillie sans jugement. Ici, nous prenons le temps.
+                Le temps d'écouter, de comprendre, de créer un lien de confiance et d'adapter l'accompagnement au rythme
+                et aux besoins uniques de chacun.
               </p>
               <p class="mt-6">
-                Notre équipe multidisciplinaire s’appuie sur l’expérience terrain, la collaboration interprofessionnelle
-                et une lecture sensible des systèmes familiaux. Chaque intervention est pensée pour ouvrir des possibles
-                et redonner confiance, pas à pas.
+                Nous croyons en la puissance de la douceur, en l'importance d'un cadre sécurisant et clair, et en la
+                valeur d'une présence authentique. Notre équipe multidisciplinaire s'appuie sur une solide expérience
+                terrain, la collaboration interprofessionnelle et une lecture sensible des dynamiques familiales et
+                relationnelles.
+              </p>
+              <p class="mt-6">
+                Chaque rencontre est pensée comme un espace pour déposer, réfléchir et avancer. Pas à pas, nous cherchons
+                à ouvrir des possibles, à soutenir les forces déjà présentes et à redonner confiance, un petit cœur à la
+                fois.
               </p>
             </div>
           </div>
@@ -467,6 +488,13 @@ const blog = [
               >
                 En savoir plus sur nos actions sociales
               </a>
+              <div class="mt-8 overflow-hidden rounded-[24px] border border-cocoa/10 shadow-soft">
+                <img
+                  src={`${baseUrl}assets/engagement-actions.jpg`}
+                  alt="Nos actions sociales"
+                  class="w-full object-cover"
+                />
+              </div>
             </div>
             <div class="grid gap-6">
               {engagement.map((item) => (
@@ -480,27 +508,65 @@ const blog = [
         </div>
       </section>
 
-      <section id="blogue" class="bg-cream py-20">
+      <section id="contact" class="bg-cream py-20">
         <div class="mx-auto max-w-6xl px-6">
-          <div class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+          <div class="grid gap-12 md:grid-cols-[0.8fr_1.2fr]">
             <div>
-              <p class="text-xs uppercase tracking-[0.5em] text-ember/70">À cœur ouvert : blogue</p>
+              <p class="text-xs uppercase tracking-[0.5em] text-ember/70">Nous joindre</p>
               <h2 class="section-title mt-4 font-display text-4xl text-cocoa md:text-5xl">
-                Des réflexions pour nourrir le quotidien.
+                Prenons contact.
               </h2>
+              <p class="mt-6 text-lg text-cocoa/80">
+                Vous avez une question ou souhaitez prendre rendez-vous ? Remplissez le formulaire et nous vous
+                répondrons dans les meilleurs délais.
+              </p>
             </div>
-            <div class="rounded-[24px] border border-ember/30 bg-ember/10 px-6 py-4 text-sm text-ember">
-              Les premiers articles arrivent bientôt.
-            </div>
-          </div>
-          <div class="mt-12 grid gap-6 md:grid-cols-3">
-            {blog.map((post) => (
-              <article class="flex h-full flex-col rounded-[26px] border border-cocoa/10 bg-white/80 p-6 shadow-soft">
-                <h3 class="font-display text-2xl text-cocoa">{post.title}</h3>
-                <p class="mt-4 text-sm text-cocoa/70">{post.description}</p>
-                <span class="mt-auto pt-6 text-xs uppercase tracking-[0.4em] text-ember/70">À venir</span>
-              </article>
-            ))}
+            <form id="contact-form" class="rounded-[32px] border border-cocoa/10 bg-white/70 p-8 shadow-soft" novalidate>
+              <div class="grid gap-6 sm:grid-cols-2">
+                <div>
+                  <label for="prenom" class="block text-xs font-medium uppercase tracking-[0.3em] text-cocoa/70">Prénom</label>
+                  <input id="prenom" name="prenom" type="text" required class="mt-2 w-full rounded-xl border border-cocoa/15 bg-white/80 px-4 py-3 text-sm text-cocoa outline-none transition focus:border-ember/50 focus:ring-1 focus:ring-ember/30" />
+                </div>
+                <div>
+                  <label for="nom" class="block text-xs font-medium uppercase tracking-[0.3em] text-cocoa/70">Nom</label>
+                  <input id="nom" name="nom" type="text" required class="mt-2 w-full rounded-xl border border-cocoa/15 bg-white/80 px-4 py-3 text-sm text-cocoa outline-none transition focus:border-ember/50 focus:ring-1 focus:ring-ember/30" />
+                </div>
+              </div>
+              <div class="mt-6">
+                <label for="courriel" class="block text-xs font-medium uppercase tracking-[0.3em] text-cocoa/70">Courriel</label>
+                <input id="courriel" name="courriel" type="email" required class="mt-2 w-full rounded-xl border border-cocoa/15 bg-white/80 px-4 py-3 text-sm text-cocoa outline-none transition focus:border-ember/50 focus:ring-1 focus:ring-ember/30" />
+              </div>
+              <div class="mt-6">
+                <label for="telephone" class="block text-xs font-medium uppercase tracking-[0.3em] text-cocoa/70">Téléphone <span class="normal-case tracking-normal text-cocoa/50">(facultatif)</span></label>
+                <input id="telephone" name="telephone" type="tel" class="mt-2 w-full rounded-xl border border-cocoa/15 bg-white/80 px-4 py-3 text-sm text-cocoa outline-none transition focus:border-ember/50 focus:ring-1 focus:ring-ember/30" />
+              </div>
+              <div class="mt-6">
+                <label for="message" class="block text-xs font-medium uppercase tracking-[0.3em] text-cocoa/70">Message</label>
+                <textarea id="message" name="message" rows="4" required class="mt-2 w-full rounded-xl border border-cocoa/15 bg-white/80 px-4 py-3 text-sm text-cocoa outline-none transition focus:border-ember/50 focus:ring-1 focus:ring-ember/30"></textarea>
+              </div>
+              <div class="mt-6">
+                <label class="flex items-start gap-3 cursor-pointer">
+                  <input type="checkbox" name="consentement" required class="mt-1 h-4 w-4 rounded border-cocoa/30 text-ember accent-ember" />
+                  <span class="text-sm text-cocoa/80">
+                    J'autorise que l'on communique avec moi par courriel. Vos informations personnelles seront utilisées
+                    uniquement pour répondre à votre demande et ne seront jamais partagées avec des tiers, conformément à
+                    la <strong>Loi 25 sur la protection des renseignements personnels</strong>.
+                  </span>
+                </label>
+              </div>
+              <div class="mt-4 rounded-xl bg-cream/60 px-4 py-3 text-xs text-cocoa/60">
+                <strong>Politique de confidentialité :</strong> Les renseignements personnels recueillis par ce formulaire
+                sont traités de façon confidentielle. Ils servent exclusivement à répondre à votre demande de contact.
+                Vous pouvez en tout temps demander la consultation, la rectification ou la suppression de vos
+                renseignements en nous écrivant. Aucune donnée n'est transmise à des tiers.
+              </div>
+              <button
+                type="submit"
+                class="mt-8 rounded-full bg-ember px-8 py-3 text-sm font-semibold uppercase tracking-[0.3em] text-white shadow-soft transition hover:translate-y-[-2px]"
+              >
+                Envoyer
+              </button>
+            </form>
           </div>
         </div>
       </section>
@@ -593,6 +659,32 @@ const blog = [
           if (dialog) dialog.close();
         });
       });
+
+      // Service dropdown
+      const dropdowns = document.querySelectorAll('.service-dropdown');
+      dropdowns.forEach((dropdown) => {
+        const menu = dropdown.querySelector('.dropdown-menu');
+        dropdown.addEventListener('mouseenter', () => menu.classList.remove('hidden'));
+        dropdown.addEventListener('mouseleave', () => menu.classList.add('hidden'));
+      });
+
+      // Contact form
+      const contactForm = document.querySelector('#contact-form');
+      if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const consent = contactForm.querySelector('[name="consentement"]');
+          if (!consent.checked) {
+            alert('Veuillez autoriser la communication par courriel pour envoyer le formulaire.');
+            return;
+          }
+          const formData = new FormData(contactForm);
+          const data = Object.fromEntries(formData.entries());
+          console.log('Form submission:', data);
+          alert('Merci pour votre message ! Nous vous répondrons dans les meilleurs délais.');
+          contactForm.reset();
+        });
+      }
 
       if (mobileToggle && mobileNav && mobileOverlay) {
         const closeMobile = () => {

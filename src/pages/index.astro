@@ -521,28 +521,41 @@ const engagement = [
                 répondrons dans les meilleurs délais.
               </p>
             </div>
-            <form id="contact-form" class="rounded-[32px] border border-cocoa/10 bg-white/70 p-8 shadow-soft" novalidate>
+            <!-- CONFIGURATION: Remplacez l'URL et les entry.XXX par ceux de votre Google Form -->
+            <!-- 1. Créez un Google Form avec les champs: Prénom, Nom, Courriel, Téléphone, Message, Consentement -->
+            <!-- 2. Menu ⋮ → Obtenir le lien pré-rempli → copiez les entry.XXX de l'URL -->
+            <!-- 3. Remplacez GOOGLE_FORM_ACTION_URL et les data-entry ci-dessous -->
+            <form
+              id="contact-form"
+              class="rounded-[32px] border border-cocoa/10 bg-white/70 p-8 shadow-soft"
+              action="GOOGLE_FORM_ACTION_URL"
+              method="POST"
+              target="google-form-iframe"
+              novalidate
+            >
+            <iframe name="google-form-iframe" class="hidden" aria-hidden="true"></iframe>
+              <!-- Remplacez entry.XXXXXXXXX par vos vrais entry IDs du Google Form -->
               <div class="grid gap-6 sm:grid-cols-2">
                 <div>
                   <label for="prenom" class="block text-xs font-medium uppercase tracking-[0.3em] text-cocoa/70">Prénom</label>
-                  <input id="prenom" name="prenom" type="text" required class="mt-2 w-full rounded-xl border border-cocoa/15 bg-white/80 px-4 py-3 text-sm text-cocoa outline-none transition focus:border-ember/50 focus:ring-1 focus:ring-ember/30" />
+                  <input id="prenom" name="entry.PRENOM_ID" type="text" required class="mt-2 w-full rounded-xl border border-cocoa/15 bg-white/80 px-4 py-3 text-sm text-cocoa outline-none transition focus:border-ember/50 focus:ring-1 focus:ring-ember/30" />
                 </div>
                 <div>
                   <label for="nom" class="block text-xs font-medium uppercase tracking-[0.3em] text-cocoa/70">Nom</label>
-                  <input id="nom" name="nom" type="text" required class="mt-2 w-full rounded-xl border border-cocoa/15 bg-white/80 px-4 py-3 text-sm text-cocoa outline-none transition focus:border-ember/50 focus:ring-1 focus:ring-ember/30" />
+                  <input id="nom" name="entry.NOM_ID" type="text" required class="mt-2 w-full rounded-xl border border-cocoa/15 bg-white/80 px-4 py-3 text-sm text-cocoa outline-none transition focus:border-ember/50 focus:ring-1 focus:ring-ember/30" />
                 </div>
               </div>
               <div class="mt-6">
                 <label for="courriel" class="block text-xs font-medium uppercase tracking-[0.3em] text-cocoa/70">Courriel</label>
-                <input id="courriel" name="courriel" type="email" required class="mt-2 w-full rounded-xl border border-cocoa/15 bg-white/80 px-4 py-3 text-sm text-cocoa outline-none transition focus:border-ember/50 focus:ring-1 focus:ring-ember/30" />
+                <input id="courriel" name="entry.COURRIEL_ID" type="email" required class="mt-2 w-full rounded-xl border border-cocoa/15 bg-white/80 px-4 py-3 text-sm text-cocoa outline-none transition focus:border-ember/50 focus:ring-1 focus:ring-ember/30" />
               </div>
               <div class="mt-6">
                 <label for="telephone" class="block text-xs font-medium uppercase tracking-[0.3em] text-cocoa/70">Téléphone <span class="normal-case tracking-normal text-cocoa/50">(facultatif)</span></label>
-                <input id="telephone" name="telephone" type="tel" class="mt-2 w-full rounded-xl border border-cocoa/15 bg-white/80 px-4 py-3 text-sm text-cocoa outline-none transition focus:border-ember/50 focus:ring-1 focus:ring-ember/30" />
+                <input id="telephone" name="entry.TELEPHONE_ID" type="tel" class="mt-2 w-full rounded-xl border border-cocoa/15 bg-white/80 px-4 py-3 text-sm text-cocoa outline-none transition focus:border-ember/50 focus:ring-1 focus:ring-ember/30" />
               </div>
               <div class="mt-6">
                 <label for="message" class="block text-xs font-medium uppercase tracking-[0.3em] text-cocoa/70">Message</label>
-                <textarea id="message" name="message" rows="4" required class="mt-2 w-full rounded-xl border border-cocoa/15 bg-white/80 px-4 py-3 text-sm text-cocoa outline-none transition focus:border-ember/50 focus:ring-1 focus:ring-ember/30"></textarea>
+                <textarea id="message" name="entry.MESSAGE_ID" rows="4" required class="mt-2 w-full rounded-xl border border-cocoa/15 bg-white/80 px-4 py-3 text-sm text-cocoa outline-none transition focus:border-ember/50 focus:ring-1 focus:ring-ember/30"></textarea>
               </div>
               <div class="mt-6">
                 <label class="flex items-start gap-3 cursor-pointer">
@@ -668,21 +681,41 @@ const engagement = [
         dropdown.addEventListener('mouseleave', () => menu.classList.add('hidden'));
       });
 
-      // Contact form
+      // Contact form — Google Forms via hidden iframe
       const contactForm = document.querySelector('#contact-form');
       if (contactForm) {
         contactForm.addEventListener('submit', (e) => {
-          e.preventDefault();
           const consent = contactForm.querySelector('[name="consentement"]');
           if (!consent.checked) {
+            e.preventDefault();
             alert('Veuillez autoriser la communication par courriel pour envoyer le formulaire.');
             return;
           }
-          const formData = new FormData(contactForm);
-          const data = Object.fromEntries(formData.entries());
-          console.log('Form submission:', data);
-          alert('Merci pour votre message ! Nous vous répondrons dans les meilleurs délais.');
-          contactForm.reset();
+          // Validate required fields
+          const required = contactForm.querySelectorAll('[required]');
+          for (const field of required) {
+            if (!field.value.trim() && field.type !== 'checkbox') {
+              e.preventDefault();
+              field.focus();
+              return;
+            }
+          }
+          // The form submits natively to the hidden iframe (target="google-form-iframe")
+          // Show success after a short delay
+          const btn = contactForm.querySelector('button[type="submit"]');
+          btn.disabled = true;
+          btn.textContent = 'Envoi en cours...';
+          setTimeout(() => {
+            contactForm.reset();
+            btn.disabled = false;
+            btn.textContent = 'Envoyer';
+            // Show success message
+            const successMsg = document.createElement('div');
+            successMsg.className = 'mt-4 rounded-xl bg-moss/10 border border-moss/30 px-4 py-3 text-sm text-cocoa/80';
+            successMsg.textContent = 'Merci pour votre message ! Nous vous répondrons dans les meilleurs délais.';
+            btn.after(successMsg);
+            setTimeout(() => successMsg.remove(), 6000);
+          }, 1500);
         });
       }
 
